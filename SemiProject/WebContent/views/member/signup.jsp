@@ -48,4 +48,21 @@
     </form>
 </div>
 
+<script>
+	$(document).ready(() => {
+    	$("#pass2").blur((e) => {
+       		let pass1 = $("#pass1").val();
+       		let pass2 = $(e.target).val();
+       		
+       		if(pass1.trim() != pass2.trim()){
+          		alert("비밀번호가 일치하지 않습니다.");
+          		
+          		$("#pass1").val("");
+          		$(e.target).val("");
+          		$("#pass1").focus();
+       		}
+    	}) 
+	});
+</script>
+
 <%@ include file="/views/common/footer.jsp" %>
