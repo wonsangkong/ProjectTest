@@ -44,7 +44,7 @@
         <label>주소<input type="text" name="address" id="address" required><br></label>
         <p></p><br>
 
-        <input type="submit" value="가즈아" id="submitbtn">
+        <input type="submit" value="회원가입" id="submitbtn">
     </form>
 </div>
 

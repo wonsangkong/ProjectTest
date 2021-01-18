@@ -546,7 +546,7 @@
 
                         </form>
 
-                        <input type="submit" id="submitbtn" value="가입하기" src="<%= request.getContextPath()%>/member/signup">
+                        <a href="<%= request.getContextPath()%>/member/signup"><input type="submit" id="submitbtn" value="가입하기"></a>
  
                     </div>
                 </div>
