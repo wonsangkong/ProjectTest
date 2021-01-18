@@ -117,31 +117,138 @@
         }
 
         /* section 부분 */
-        #itemDetailPageContainer {
+        section {
             width: 100%;
-            border: 1px solid;
+            height: 100%;
         }
-
         #categoryName {
             width: 100%;
-            font-size: 18px;
+            font-size: 15px;
             margin-top: 100px;
             padding-left: 50px;
-            /* border: 1px solid;/ */
         }
 
         #projectName {
             width: 100%;
-            font-size: 40px;
-            background-color: gray;
+            font-size: 30px;
             text-align: center;
+            color: white;
+            background-color: gray;
+        }
+
+        #projectContent_1>table {
+            width: 85%;
+            height: 450px;
+            margin: 50px;
+            margin-left: 70px;   
+            /* border: 1px solid; */
+            line-height: 50px;
+        }
+
+        #projectContent_1 td {
+            padding: auto;
+            margin: 0 auto;
+            font-size: 15px;
+        }
+
+        #projectContent_1 td img {
+            width: 550px;
+            margin: 0 auto;
+            margin-top: 10px;
+            height: 100%;
+            box-sizing: border-box;
+            /* border: 1px solid; */
+        }
+
+        #projectContent_1 h1 {
+            font-size: 25px;
+            border-bottom: 1px inset lightgray;
+        }
+
+        #doFundingButton {
+            width: 200px;
+            height: 40px;
+            color: black;
+            font-size: 15px;
+            font-weight: 900;
+            border-style: solid;
+            border-radius: 10px;
+            background-color: white;
 
         }
+
+        #likeButton {
+            width: 30px;
+            height: 40px;
+            color: red;
+            font-size: 20px;
+            border-style: solid;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        #projectContent_2 {
+            float: left;
+            width: 60%;
+            height: auto;
+            /* border: 1px solid; */
+        }
+
+        #projectContent_2>p {
+            float: left;
+            width: 30%;
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        #productInfo {
+            height: 800px;
+        }
+
+        #productInfo img {
+            width: 100%;
+            border: 1px solid;
+        }
+
+        #projectContent_3 {
+            float: right;
+            width: 40%;
+        }
+
+        #projectContent_3> p {
+            font-size: 15px;
+            font-weight: 900;
+            padding-left: 40px;
+     
+        }
+
+        #projectContent_3 div {
+            margin: 40px;
+            padding: 10px;
+            border-style: groove;
+            background-color: lightgray;
+        }
+
+        #projectContent_3 a {
+            text-decoration: none;
+            font-size: 13px;
+            color: black;
+        }
+
+        #projectContent_3 span {
+            font-weight: 600;
+            font-size: 15px;
+            
+            
+        }
+
+
+
 
         /* footer 부분 */
        #footer {
             position:absolute;
-            /* bottom:-600px; */
+            bottom:-600%;
             width: 1000px;
             height:70px; 
             background-color: #555;
@@ -237,7 +344,7 @@
                 <div id="projectName">프로젝트명</div>
                 
                 <div id="projectContent_1">
-                    <table border="1">
+                    <table>
                         <tr>
                             <td colspan="">
                                 <img src="resources/logo.PNG" alt="">
@@ -264,23 +371,29 @@
                 </div>
                 <div id="projectContent_3">
                     <p>리워드 선택</p>
-                    <a href="">
-                        <p><span>1,000원+</span><br>리워드는 받지않고 펀딩합니다.</p>
-                    </a>
-                    <a href="">
-                        <p>
-                            <span>00,000원+</span><br>
-                            배송비 포함<br>
-                            -제품 상세내역
-                        </p>
-                    </a>
-                    <a href="">
-                        <p>
-                            <span>00,000원+</span><br>
-                            배송비 포함<br>
-                            -제품 상세내역
-                        </p>
-                    </a>
+                    <div id="reward_1">
+                        <a href="">
+                            <p><span>1,000원+</span><br>리워드는 받지않고 펀딩합니다.</p>
+                        </a>
+                    </div>
+                    <div id="reward_2">
+                        <a href="">
+                            <p>
+                                <span>00,000원+</span><br>
+                                배송비 포함<br>
+                                -제품 상세내역
+                            </p>
+                        </a>
+                    </div>
+                    <div id="reward_3">
+                        <a href="">
+                            <p>
+                                <span>00,000원+</span><br>
+                                배송비 포함<br>
+                                -제품 상세내역
+                            </p>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

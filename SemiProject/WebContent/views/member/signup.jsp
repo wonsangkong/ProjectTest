@@ -24,11 +24,11 @@
         <label id="idLabel">아이디<input type="text" name="userId" id="userId" placeholder="(4글자이상)" required>
         <input type="button" value="중복검사" ><br></label>
         <p></p><br>
-        <label>비밀번호<input type="password" name="userPwd" id="userPwd1" required><br>
+        <label>비밀번호<input type="password" name="userPwd1" id="userPwd1" required><br>
         <label class="hint">영문자, 숫자, 특수문자(!@#$%...)를 조합한 8자 이상</label></label>
         <p></p><br>
         
-        <label>비밀번호 확인<input type="password" name="userPwd" id="userPwd2" required><br></label>
+        <label>비밀번호 확인<input type="password" name="userPwd2" id="userPwd2" required><br></label>
         <p></p><br>
         
         <label>이름<input type="text" name="userName" id="userName" required><br></label>
@@ -47,22 +47,5 @@
         <input type="submit" value="회원가입" id="submitbtn">
     </form>
 </div>
-
-<script>
-	$(document).ready(() => {
-    	$("#pass2").blur((e) => {
-       		let pass1 = $("#pass1").val();
-       		let pass2 = $(e.target).val();
-       		
-       		if(pass1.trim() != pass2.trim()){
-          		alert("비밀번호가 일치하지 않습니다.");
-          		
-          		$("#pass1").val("");
-          		$(e.target).val("");
-          		$("#pass1").focus();
-       		}
-    	}) 
-	});
-</script>
 
 <%@ include file="/views/common/footer.jsp" %>

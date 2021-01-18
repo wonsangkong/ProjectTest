@@ -45,7 +45,7 @@ public class MemberSignupServlet extends HttpServlet {
 		System.out.println(member);
 		
 		// DB에 저장하기
-		int result = new MemberService().signupMember(member);
+//		int result = new MemberService().signupMember(member);
 		
 		request.setAttribute("msg", "회원가입 성공! 환영합니다.^^");
 		request.setAttribute("location", "/");

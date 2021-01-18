@@ -66,40 +66,33 @@ public class MemberDao {
 		return member;
 	}
 
-	public int insertMember(Member member){
-		int result = 0;
-		Connection conn = null;
-		String query= null;
-		PreparedStatement pstmt = null;
-
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","FD","FD");
-			
-			query =	 "INSERT INTO MEMBER VALUES(SEQ_UNO.NEXTVAL,?, ?, ?, ?, ?, ?, SYSDATE, SYSDATE, DEFAULT, DEFAULT, DEFAULT)";
-			pstmt = conn.prepareStatement(query);
-			
-			pstmt.setNString(1, member.getUserId());
-			pstmt.setNString(2, member.getUserPwd());
-			pstmt.setNString(3, member.getUserName());
-			pstmt.setNString(4, member.getPhone());
-			pstmt.setNString(5, member.getEmail());
-			pstmt.setNString(6, member.getAddress());
-			
-			result = pstmt.executeUpdate();
-
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			try {
-				pstmt.close();
-				conn.close();
-			} catch(SQLException e) {
-				e.printStackTrace();
-			}
-	}
-		return result;
-	}
+//	public int insertMember(){
+//		Connection conn = null;
+//		String query= null;
+//		ResultSet rset = null;
+//		PreparedStatement pstmt = null;
+//
+//		try {
+//			Class.forName("oracle.jdbc.driver.OracleDriver");
+//			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","FD","FD");
+//			
+//			query =	INSERT INTO MEMBER VALUES(SEQ_UNO.NEXTVAL, ?, ?, '일반회원', ?, ?, ?, SYSDATE, SYSDATE, DEFAULT, ?, DEFAULT);
+//			
+////			query = "SELECT * FROM MEMBER WHERE USER_ID=? AND USER_PWD=? AND USER_STATUS='Y'";
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			try {
+//				rset.close();
+//				pstmt.close();
+//				conn.close();
+//			} catch(SQLException e) {
+//				e.printStackTrace();
+//			}
+//
+//		return 0;
+//	}
+//	}
 }
