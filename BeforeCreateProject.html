@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeforeCreateProject</title>
+</head>
+<style>
+
+    #full1 {
+        width: 1000px;
+        height: 1700px;
+        margin: auto; 
+        
+    }
+
+    #BCP1 {
+        text-align: center;
+        margin-left: 34px;
+        margin-top: 40px;
+    }
+
+
+    #msg1 {
+        margin-top: 100px;
+        border: 1px solid;
+        border-radius: 50px;
+        border-color: black;
+        width: 60%;
+        margin-left: 200px;
+    }
+
+    #msg1>h2 {
+        text-align: center;
+    }
+
+    #msg2 {
+        font-size: 15px;
+        text-align: center;
+
+        margin-top: 40px;
+    }
+
+    #checkText1 {
+        width: 650px;
+        text-align: center;
+    }
+
+    #checkBox1 {
+        margin-top: 100px;
+        width: 20px;
+        height: 20px;
+        margin-left: 92px;
+        
+    }
+
+    #checkdiv1 {
+        margin-top: 100px;
+        font-size: 14px; 
+        border: 1px solid;
+        width: 780px;
+        text-align: center;
+        background-color: black;
+        color: white;
+        height: 23px;
+    }
+
+    #checkBox2 {
+        margin-top: 10px;
+        width: 20px;
+        height: 20px;
+        margin-left: 92px;
+        
+    }
+
+    #checkdiv2 {
+        margin-top: 10px;
+        font-size: 14px; 
+        border: 1px solid;
+        width: 780px;
+        text-align: center;
+        background-color: black;
+        color: white;
+        height: 23px;
+    }
+
+    #submitbtn {
+        margin-top: 120px;
+        margin-left: 467px;
+        width: 80px;
+        height: 30px;
+        font-style: italic;
+        font-weight: bolder;
+        background-color: white;
+        border-radius: 20px;
+        border: 1px solid;
+    }
+
+
+    
+
+</style>
+<body>
+    <div id="full1">
+        <div>
+            <img src="resources/BCP1.PNG" id="BCP1" width="950px">
+        </div>
+        <div id="msg1">
+            <h2>프로젝트를 올리기 전에 확인해 주세요.</h2>
+        </div>
+        <div id="msg2">
+            캐리펀딩은 검토절차를 통해 창작자님이 작성한 프로젝트가 캐리펀딩의 정책을 준수하는지 검토하고 있습니다. <br>
+            아래 사항들을 확인 후 프로젝트를 올려주세요.
+        </div>
+        <table>
+            <tr>
+                <td id="check1"><input type="checkbox" id="checkBox1"></td>
+                <td id="text1"><div id="checkdiv1">이미 시판된 제품, 현금이나 지분등의 수익제공, 단순 기부 등의 기준에 맞지 않는 선물을 제공하지 않습니다.</div></td>
+            </tr>
+            <tr>
+                <td id="check1"><input type="checkbox" id="checkBox2"></td>
+                <td id="text1"><div id="checkdiv2">창작자의 신분증 혹은 사업자등록증, 은행 계좌, 연락 가능한 번호가 있습니다.</div></td>
+            </tr>
+        </table>
+
+        <input type="submit" value="계속하기" id="submitbtn">
+    </div>
+</body>
+</html>
