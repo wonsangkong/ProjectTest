@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carry Funding Home</title>
+    <style>
+
+        .wrap {
+            width: 1000px;
+            height: 800px;
+            margin: auto;
+        }
+
+        /* header 부분 */
+        #homeLogo {
+            text-align: center;
+            margin-left: 280px;
+        }      
+        
+        #navi {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            height: 100%;
+        }
+
+        #navi a { 
+            background-color: black;
+            color: white;
+            display: block;
+            font-size: 20px;
+            line-height: 40px;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        #navi>li {
+            float: left;
+            width: 25%;
+            height: 100%;
+            text-align: center;
+        }
+
+        #navi a:hover {
+            background-color: white;
+            color: black;
+            width: 100%;
+            
+        }
+
+        #navi>li>ul {
+            position: absolute;
+            width: 250px;
+            list-style-type: none;
+            padding: 0;
+            display: none;
+        }
+
+        #navi>li>ul:hover {
+            display: block;
+        }
+
+        #navi>li>a:hover+ul {
+            display: block;
+        }
+
+        #navi>li>ul li a{
+            font-size: 15px;
+        }
+
+        li a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+        #login_form {
+            height:20%;
+            float: right;
+            margin-right: 35px;
+        }
+    
+        #login_form_input>table {
+            width: 200px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        #userInput>input  {
+            height: 28px;
+            border: 1px solid;
+            border-style: inset;
+        }
+
+        #loginB>input {
+            height: 75px;
+            margin-top: 30px;
+            border-style: solid;
+            background-color: white;
+        }
+
+        #login_form_etc>a {
+            width: 100%;   
+            margin-right: 10px;     
+            color: black;
+            font-size: 12px;
+        }
+
+        #userId {
+            margin-top: 30px;
+            margin-bottom: 7px;
+        }
+
+        /* section 부분 */
+        #itemDetailPageContainer {
+            width: 100%;
+            border: 1px solid;
+        }
+
+        #categoryName {
+            width: 100%;
+            font-size: 18px;
+            margin-top: 100px;
+            padding-left: 50px;
+            /* border: 1px solid;/ */
+        }
+
+        #projectName {
+            width: 100%;
+            font-size: 40px;
+            background-color: gray;
+            text-align: center;
+
+        }
+
+        /* footer 부분 */
+       #footer {
+            position:absolute;
+            /* bottom:-600px; */
+            width: 1000px;
+            height:70px; 
+            background-color: #555;
+            color: aliceblue;  
+        }
+
+        #footer_2>p{
+            width:100%;
+            margin:0;
+            box-sizing:border-box;
+            font-size:12px;
+            
+        }
+        #p1{
+            height:80%;
+            padding:5px;
+            padding-left: 15px;
+        }
+
+        #p2{
+            height:20%;
+            text-align:center;
+            background-color: #555;
+            color: aliceblue;
+        }
+
+        #footer_1 {
+            margin-top: 17px;
+        }
+
+
+        #footer_1>a{
+            text-decoration:none;
+            font-weight:300;
+            margin:15px;
+            line-height:25px;
+            color: aliceblue;  
+            font-size: 12px;   
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div id="login_form">
+                <form action="" id="login_form_input">
+                    <table>
+                        <td id="userInput">
+                            <input type="text" name="userId" placeholder="아이디를 입력해주세요." id="userId"required><br>
+                            <input type="password" name="userPwd" placeholder="비밀번호를 입력해주세요." required>
+                        </td>
+                        <td id="loginB" >
+                            <input type="submit" value="로그인">
+                        </td>
+                        <tr>
+                            <td colspan="2">
+                                <div id="login_form_etc">
+                                    <a id="a1" href="">회원가입</a> 
+                                    <a id="a2" href="">ID 찾기</a> 
+                                    <a id="a3" href="">PWD 찾기</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div id="homeLogo">
+                <a href="">
+                    <img src="resources/logo.PNG" id="home_logo" width="250px">
+                </a>
+            </div>
+            <div id="navigator">
+                <ul id="navi">
+                    <li><a href="">펀딩하기</a>
+                        <ul>
+                            <li><a href="">모든프로젝트</a></li>
+                            <li><a href="">카테고리</a></li>
+                            <li><a href="">오픈예정</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">프로젝트 신청하기</a></li>
+                    <li><a href="">커뮤니티</a></li>
+                    <li><a href="">마이페이지</a></li>
+                </ul>
+            </div>  
+        </header>
+
+        <section>
+            <div id="itemDetailPageContainer">
+                <!-- 선택한 프로젝트의 카테고리명과 프로젝트명이 보이게 -->
+                <div id="categoryName">카테고리명</div> 
+                <div id="projectName">프로젝트명</div>
+                
+                <div id="projectContent_1">
+                    <table border="1">
+                        <tr>
+                            <td colspan="">
+                                <img src="resources/logo.PNG" alt="">
+                            </td>
+                            <td>
+                                <h1>XX일 남음</h1>
+                                <p>xx%달성</p>
+                                <p>000,000,000원 펀딩</p>
+                                <p>xx명 펀딩</p>
+                                <input type="button" id="doFundingButton" value="펀딩하기">
+                                <input type="button" id="likeButton" value="&hearts;">
+                            </td>
+                    </table>
+                </div>
+                <div id="projectContent_2">
+                    <p>창작자와 소통하기<span>0</span></p>
+                    <p>캐리하는 게시판</p>
+                    <p>펀딩안내</p>
+                    <div id="productInfo">
+                        <img src="resources/logo.PNG" alt="">
+                        <p>제품설명 블라블라 이미지파일만 넣을건지 그냥 html로 적을껀지 정해봅시다~</p>
+                        <p>제품설명 블라블라 이미지파일만 넣을건지 그냥 html로 적을껀지 정해봅시다~</p>
+                    </div>
+                </div>
+                <div id="projectContent_3">
+                    <p>리워드 선택</p>
+                    <a href="">
+                        <p><span>1,000원+</span><br>리워드는 받지않고 펀딩합니다.</p>
+                    </a>
+                    <a href="">
+                        <p>
+                            <span>00,000원+</span><br>
+                            배송비 포함<br>
+                            -제품 상세내역
+                        </p>
+                    </a>
+                    <a href="">
+                        <p>
+                            <span>00,000원+</span><br>
+                            배송비 포함<br>
+                            -제품 상세내역
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+        <div id="footer">    
+            <div id="footer_1">
+                <a href="">이용약관</a>| 
+                <a href="">개인정보취급방침</a>| 
+                <a href="">인재채용</a>| 
+                <a href="">고객센터</a>
+            </div>
+            <div id="footer_2">
+                <p id="p1">
+                    대표전화번호 : 000 - 000 - 0000&nbsp; / &nbsp;info@carry.kr
+                </p>
+                <p id="p2">
+                    <br>&#169;CARRY FUNDING Co., Ltd.
+                </p>
+            </div>
+        </div>
+        </footer>
+</body>
+</html>

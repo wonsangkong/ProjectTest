@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carry Funding Home</title>
+    <style>
+
+        .wrap {
+            width: 1000px;
+            height: 800px;
+            margin: auto;
+        }
+
+        /* header 부분 */
+        #homeLogo {
+            text-align: center;
+            margin-left: 280px;
+        }      
+        
+        #navi {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            height: 100%;
+        }
+
+        #navi a { 
+            background-color: black;
+            color: white;
+            display: block;
+            font-size: 20px;
+            line-height: 40px;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        #navi>li {
+            float: left;
+            width: 25%;
+            height: 100%;
+            text-align: center;
+        }
+
+        #navi a:hover {
+            background-color: white;
+            color: black;
+            width: 100%;
+            
+        }
+
+        #navi>li>ul {
+            position: absolute;
+            width: 250px;
+            list-style-type: none;
+            padding: 0;
+            display: none;
+        }
+
+        #navi>li>ul:hover {
+            display: block;
+        }
+
+        #navi>li>a:hover+ul {
+            display: block;
+        }
+
+        #navi>li>ul li a{
+            font-size: 15px;
+        }
+
+        li a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+        #login_form {
+            height:20%;
+            float: right;
+            margin-right: 35px;
+        }
+    
+        #login_form_input>table {
+            width: 200px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        #userInput>input  {
+            height: 28px;
+            border: 1px solid;
+            border-style: inset;
+        }
+
+        #loginB>input {
+            height: 75px;
+            margin-top: 30px;
+            border-style: solid;
+            background-color: white;
+        }
+
+        #login_form_etc>a {
+            width: 100%;   
+            margin-right: 10px;     
+            color: black;
+            font-size: 12px;
+        }
+
+        #userId {
+            margin-top: 30px;
+            margin-bottom: 7px;
+        }
+
+        /* section 부분 */
+        
+        #pUploadImg {
+            margin-top: 80px;
+            text-align: center;
+        }
+        
+        h1 {
+            width: 800px;
+            height: 50px;
+            margin-top: 50px;
+            margin-left: 100px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            font-weight: 900;
+            border: 1px solid;
+            border-style: outset;
+            border-radius: 50px;
+            background-color: black;
+            color: white;
+        }
+
+        #pUploadContainer p {
+            width: 700px;
+            /* margin: 30px; */
+            margin-left: 120px;
+            font-weight: lighter;
+            color: red;
+        }
+
+        #pUploadContainer span {
+            color:gray;
+            font-size: 12px;
+            font-weight: lighter;
+        }
+
+        #pUploadJoinFrm, #pUploadDetailFrm {
+            height: 300px;
+            padding: 20px;
+            margin-top: 30px;
+            margin-left: 130px;
+        }
+
+        #pUploadJoinFrm table,  #pUploadDetailFrm table {
+            margin-left: 120px;
+        }
+
+        #pUploadJoinFrm th, #pUploadDetailFrm th {
+            height: 50px;
+            font-size: 16px;
+            font-weight: bolder;
+            text-align: left;
+        }
+
+        #pUploadJoinFrm td{
+            height: 50px;
+            font-size: 16px;
+            font-weight: bolder;
+       
+        }
+
+        #pUploadDetailFrm td{
+            height: 50px;
+            font-size: 16px;
+            font-weight: bolder;
+        
+        }
+
+        #pUploadJoinFrm input {
+            width: 200px;
+            height: 30px;
+            margin-left: 85px;
+        }
+
+        #pUploadDetailFrm input {
+            width: 200px;
+            height: 30px;
+            margin-left: 65px;
+        }
+
+        #pUploadJoinFrm input[type="button"] {
+            width: 80px;
+            height: 35px;
+            margin: auto;
+        }
+
+        #pUploadDetailFrm input[type="button"] {
+            width: 30px;
+            margin: auto;
+        }
+
+        section textarea {
+            width: 390px;
+        }
+
+
+        #projectButton {
+            text-align: center;
+            /* margin-bottom: 10px; */
+        }
+
+        #projectButton>input {
+            width: 100px;
+            height: 30px;
+            margin-left: 10px;
+            border-radius: 10px;
+            border-style: solid;
+            background-color:gray;
+            color: white;
+        }
+        
+
+        /* footer 부분 */
+       #footer {
+            position:absolute;
+            bottom:-600px;
+            width: 1000px;
+            height:70px; 
+            background-color: #555;
+            color: aliceblue;  
+        }
+
+        #footer_2>p{
+            width:100%;
+            margin:0;
+            box-sizing:border-box;
+            font-size:12px;
+            
+        }
+        #p1{
+            height:80%;
+            padding:5px;
+            padding-left: 15px;
+        }
+
+        #p2{
+            height:20%;
+            text-align:center;
+            background-color: #555;
+            color: aliceblue;
+        }
+
+        #footer_1 {
+            margin-top: 17px;
+        }
+
+
+        #footer_1>a{
+            text-decoration:none;
+            font-weight:300;
+            margin:15px;
+            line-height:25px;
+            color: aliceblue;  
+            font-size: 12px;   
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div id="login_form">
+                <form action="" id="login_form_input">
+                    <table>
+                        <td id="userInput">
+                            <input type="text" name="userId" placeholder="아이디를 입력해주세요." id="userId"required><br>
+                            <input type="password" name="userPwd" placeholder="비밀번호를 입력해주세요." required>
+                        </td>
+                        <td id="loginB" >
+                            <input type="submit" value="로그인">
+                        </td>
+                        <tr>
+                            <td colspan="2">
+                                <div id="login_form_etc">
+                                    <a id="a1" href="">회원가입</a> 
+                                    <a id="a2" href="">ID 찾기</a> 
+                                    <a id="a3" href="">PWD 찾기</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div id="homeLogo">
+                <a href="">
+                    <img src="resources/logo.PNG" id="home_logo" width="250px">
+                </a>
+            </div>
+            <div id="navigator">
+                <ul id="navi">
+                    <li><a href="">펀딩하기</a>
+                        <ul>
+                            <li><a href="">모든프로젝트</a></li>
+                            <li><a href="">카테고리</a></li>
+                            <li><a href="">오픈예정</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">프로젝트 신청하기</a></li>
+                    <li><a href="">커뮤니티</a></li>
+                    <li><a href="">마이페이지</a></li>
+                </ul>
+            </div>  
+        </header>
+
+        <p></p>
+
+        <section>
+            <div id="pUploadImg">
+                <img src="resources/uploadSystem.png" alt="">
+            </div>
+            <h1>프로젝트 신청하기</h1>
+            <div id="pUploadContainer">
+                <form name="pUploadJoinFrm" id="pUploadJoinFrm" action="">
+                    <table>
+                        <p>(선택) 항목을 제외하고 모두 입력하세요.</p>
+                        <tr>
+                            <th>개설자명<br>(기업명)</td>
+                            <td>
+                                <input type="text" name="pOpenName" id="pOpenName" placeholder="이름/기업명을 입력하세요." required>
+                                <input type="button" id="checkDuplicate" value="중복검사" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>이메일</td>
+                            <td>
+                                <input type="email" name="openEmail" id="openEmail" placeholder="abc@abc.com" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>휴대폰번호</td>
+                            <td>
+                                <input type="number" name="openPhoneNum" id="openPhoneNum" placeholder="숫자만 입력하세요." required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>주소</td>
+                            <td>
+                                <input type="text" name="openBasicAddress" id="openBasicAddress" placeholder="기본주소" required><br>
+                                <!-- <input type="button" name="searchAdr" id="searchAdr" value="주소검색"><br> -->
+                                <input type="text" name="openDetailAddress" id="openDetailAddress" placeholder="상세주소" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>홈페이지<span>(선택)</span></td>
+                            <td>
+                                <input type="url" name="openHomeUrl" id="openHomeUrl" placeholder="https://">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <form name="pUploadDetailFrm" id="pUploadDetailFrm" action="">
+                    <table>
+                        <p>*모든 항목을 입력해주세요.</p>
+                        <tr>
+                            <th>프로젝트명</td>
+                            <td><input type="text" name="projectName" id="projectName"></td>
+                        </tr>
+                        <tr>
+                            <th>목표 펀딩 금액</td>
+                            <td><input type="text" name="fundingAmount" id="fundingAmount" placeholder="000,000,000" required></td>
+                        </tr>
+                        <tr>
+                            <th>프로젝트 개시일</td>
+                            <td><input type="datetime-local" name="projectStartDate" class="" id="startDate" required></td>
+                        </tr>
+                        <tr>
+                            <th>프로젝트 마감일</td>
+                            <td><input type="datetime-local" name="projectEndDate" class="" id="endDate" required></td>
+                        </tr>
+                        <tr>
+                            <th>품목명 / 가격</td>
+                            <td>
+                                <input type="text" name="productName" class="product" required><br>
+                                <input type="text" name="productPrice" class="product" required>
+                                <input type="button" name="addButton" class="" id="addButton" value="+">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <textarea name="addItemNameList" id="addItemNameList" cols="30" rows="10" readonly ></textarea>
+                            </td>
+                        </tr>
+                    </table>
+                    <div id="projectButton">
+                        <input type="submit" id="projectSubmit"  value="신청하기" >
+                        <input type="reset" value="취소">
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+        <div id="footer">    
+            <div id="footer_1">
+                <a href="">이용약관</a>| 
+                <a href="">개인정보취급방침</a>| 
+                <a href="">인재채용</a>| 
+                <a href="">고객센터</a>
+            </div>
+            <div id="footer_2">
+                <p id="p1">
+                    대표전화번호 : 000 - 000 - 0000&nbsp; / &nbsp;info@carry.kr
+                </p>
+                <p id="p2">
+                    <br>&#169;CARRY FUNDING Co., Ltd.
+                </p>
+            </div>
+        </div>
+        </footer>
+</body>
+</html>
