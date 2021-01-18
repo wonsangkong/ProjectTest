@@ -16,7 +16,7 @@ public class MemberService {
 		
 		
 	}
-//	public int signupMember(Member member) {
-//		return dao.insertMember();
-//	}
+	public int signupMember(Member member) {
+		return dao.insertMember(member);
+	}
 }
