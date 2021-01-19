@@ -1,3 +1,6 @@
+
+/* 새로 추가한 회원정보 수정 관련 CSS 파일입니다. 그대로 추가해주세요. */
+
 @charset "UTF-8";
 
         #allcode {
@@ -11,7 +14,7 @@
             border: 1px solid;
             border-radius: 28px;
             width: 260px;
-            margin-top: 100px;
+            margin-top: 80px;
             margin-left: 370px;
             background-color: steelblue;
             border-color: steelblue;
@@ -24,7 +27,8 @@
         }
 
         #hr1 {
-            width: 600px;         
+            width: 600px;   
+            margin-top: 40px;     
         }
 
         #info1 {
@@ -35,12 +39,6 @@
 
         }
 
-        .hint {
-            color: red;
-            font-size: 12px;
-            margin-left: 470px;
-        }
-
         label {
             margin-left: 350px;
         }
@@ -49,11 +47,7 @@
             height: 22px;
         }
 
-		/* 
-			'userId' -> 'newId' 로 변경하였으므로
-			'userId' CSS를 'newId' 로 변경.
-		*/
-		#newId {
+        #newId {
             margin-top: 40px;
             margin-left: 70px;
         }
@@ -93,4 +87,9 @@
             color: white;
             border-radius: 30px;
             border-color: black;
+        }
+
+        #buttons {
+            text-align: center;
+            margin-top: 40px;
         }

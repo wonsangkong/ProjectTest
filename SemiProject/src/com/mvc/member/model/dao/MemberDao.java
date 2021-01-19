@@ -66,11 +66,14 @@ public class MemberDao {
       return member;
    }
 
-   public int insertMember(Member member){
-      int result = 0;
-      Connection conn = null;
-      String query= null;
-      PreparedStatement pstmt = null;
+   /** 
+		insertMember 매개변수 내에 Connection 추가 후 Connection 변수 제거.
+*/
+
+   public int insertMember(Connection conn, Member member){
+	   int result = 0;
+	   String query= null;
+	   PreparedStatement pstmt = null;
 
       try {
          Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -121,5 +124,48 @@ public class MemberDao {
 		}
 				
 		return result;
+	}
+	
+	   /** 
+		Member findMemberById 추가.  
+	    */
+	public Member findMemberById(Connection conn, String userId) {
+		Member member = null;
+		ResultSet rset = null;
+		PreparedStatement pstmt = null;
+	
+		try {
+		
+			pstmt = conn.prepareStatement("SELECT * FROM MEMBER WHERE USER_ID=?");
+			
+			pstmt.setString(1, userId);
+	
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				System.out.println(rset.getString("USER_ID") + ", " + rset.getString("USER_PWD"));
+				member = new Member(
+					rset.getInt("USER_NO"),
+	                rset.getString("USER_ID"),
+	                rset.getString("USER_PWD"),
+	                rset.getString("USER_NAME"),
+	                rset.getString("PHONE"),
+                    rset.getString("EMAIL"),
+                    rset.getString("ADDRESS"),
+                    rset.getDate("USER_ENROLL_DATE"),
+                    rset.getDate("USER_MODIFY_DATE"),
+                    rset.getString("USER_STATUS"),
+                    rset.getString("USER_ROLE"),
+                    rset.getInt("USER_COIN")
+                    );
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return member;
 	}
 }
