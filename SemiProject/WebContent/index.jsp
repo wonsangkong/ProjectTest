@@ -9,7 +9,7 @@
             <div id="content_2">
                 <div id="protitle1">
                     <hr id="hr1">
-                        <h3>성공 임박 프로젝트</h3>
+                        <h3><a href="<%=request.getContextPath()%>/project/list">성공임박 프로젝트</a></h3>
                     <hr id="hr2">
                 </div>
                 <form class="prodform">

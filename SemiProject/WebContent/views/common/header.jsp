@@ -39,7 +39,7 @@
                     </table>
                 </form>
                 <% } else { %>
-                	<table>
+                	<%-- <table>
                         <td id="userInput">
                             <%= loginMember.getUserName() %> 님 안녕하세요.
                         </td>
@@ -55,7 +55,25 @@
                                 </div>
                             </td>
                         </tr>
-                    </table>
+                    </table> --%>
+                    <table>
+		                <tr>
+		                    <td>
+		                        <img src="resources/userImg.png" alt="">
+		                    </td>
+		                    <td>
+		                        <p><%= loginMember.getUserName() %> 님 반갑습니다! <br>
+		                        <%if(loginMember != null && loginMember.getUserRole().equals("ROLE_ADMIN")) {%>
+                                	<a>캐리펀딩 관리하기</a>
+                                <%} else { %>
+                                	포인트 : <a><%= loginMember.getUserCoin() %>p</a>
+                                <%} %></p>
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td colspan="2"><input type="button" id="logout" value="로그아웃"  onclick="location.replace('<%= request.getContextPath() %>/logout');"> <!-- 오른쪽 정렬 또는 가운데 정렬-->
+		                </tr>
+		            </table>
                   <% } %>
                 
             </div>
