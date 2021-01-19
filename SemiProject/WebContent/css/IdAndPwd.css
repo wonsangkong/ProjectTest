@@ -1,0 +1,49 @@
+@charset "UTF-8";
+      .wa {
+        width: 1000px;
+        height: 800px;
+        margin: auto;
+         }
+
+       #na {
+        text-align: center;
+        margin-left: 30px;
+        }
+
+        label {
+            margin-left: 350px;
+        }
+
+        label>input {
+            height: 22px;
+        }
+
+        #userId {
+        
+            margin-left: 70px;
+        }
+
+        #userName {
+            margin-left: 89px;
+        }
+
+        #phone {
+            margin-left: 43px;
+        }
+
+        #email {
+            margin-left: 75px;
+        }
+
+        #submitbtn {
+ 
+            width: 80px;
+            height: 33px;
+            margin-top: 50px;
+            float: right;
+            margin-right: 20px;
+            background-color: black;
+            color: white;
+            border-radius: 30px;
+            border-color: black;
+        }
