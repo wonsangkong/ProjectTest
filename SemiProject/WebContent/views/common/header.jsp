@@ -66,6 +66,8 @@
                                 	<a>캐리펀딩 관리하기</a>
                                 <%} else { %>
                                 	포인트 : <a><%= loginMember.getUserCoin() %>p</a>
+                                	<%-- 이슬 추가사항 <br>태그포함 인풋태그로 포인트충전하기버튼 추가 --%>
+                                	<br><a href="<%= request.getContextPath()%>/member/point"><input type="button" id="addPoint" value="포인트충전하기"></a>
                                 <%} %></p>
 		                    </td>
 		                </tr>

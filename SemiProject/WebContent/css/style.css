@@ -253,3 +253,36 @@
             background-color: white;
             margin-left: 15px;
         } 
+                
+        /* 이슬 addPoint 버튼 css 추가*/
+        #addPoint {
+            border-style: none;
+            background-color: white;
+            color: tomato;
+            text-decoration: underline;
+        }
+        
+        /* 이슬 포인트 충전하기 버튼 클릭 후 보여지는 화면 section부분 css */
+        section>p {
+            width: 80%;
+            margin: auto;
+            margin-top: 100px;
+            padding-top: 50px;
+            font-size: 20px;
+            font-weight: 800;
+            border-bottom: 1px solid;
+        }
+
+        #pointInfo {
+            width: 70%;
+            height: 70%;
+            margin: auto;
+        }
+
+        #pointInfo > p {
+            width: 80%;
+            padding: 70px;
+            margin: auto;
+            font-size: 17px;
+        }
+        
