@@ -11,67 +11,99 @@
 <body>
 <div class="wa">
     <header>
-         <form action="<%= request.getContextPath()%>/member/Id" method="post">   
         <div id="na">
+
             <a href="">
-                <img src="resources/logo.PNG"  width="250px">
+                <img src="resources/logo.PNG" width="250px">
             </a>
         </div>
     </header>
 
     <p></p>
+  
+        <section>
 
-    <section>
-        <div>
-            <div id="protitle1">
-                <hr id="hr1">
-                <h1> ID ● PWD 찾기</h1>
-                <hr id="hr2">
-    <table  >
+            <div>
+                <div>
+                  <form action="<%= request.getContextPath()%>/member/Id" method="post">
+                    <hr id="hr1">
+                    <h1> ID ● PWD 찾기</h1>
+                    <hr id="hr2">
+                    <table>
 
-            <fieldset>
-                <legend><h2> ★ 아이디 찾기 ★ </h2></legend>
+                        <fieldset>
+                            <legend>
+                                <h2> ★ 아이디 찾기 ★ </h2>
+                            </legend>
 
-                <label id="idLabel">이름<input type="text" name="userName" id="userName" placeholder=" 이름을 입력해주세요." required><br></label>
-                <p></p><br>
-        
-                <label>휴대폰번호<input type="text" name="phone" id="phone" placeholder="  (-없이)01012349876" required><br></label>
-                <p></p><br>
-        
-                <label>이메일<input type="email" name="email" id="email" placeholder=" abc@defg.com" required><br></label>
-                <p></p><br>
-            </fieldset>
-            <input type="submit" value="취소"  id="submitbtn">
-            <input type="submit" value="확인"  id="submitbtn">
-            
-    </table>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
+                            <label id="idLabel">이름<input type="text" name="userName" id="userName"
+                                    placeholder=" 이름을 입력해주세요." required><br></label>
+                            <p></p><br>
 
-    <hr id="hr1">
-    <h1> ID ● PWD 찾기</h1>
-    <hr id="hr2">
-<table  >
+                            <label>휴대폰번호<input type="text" name="phone" id="phone" placeholder="  (-없이)01012349876"
+                                    required><br></label>
+                            <p></p><br>
 
-<fieldset>
-    <legend><h2> ★ 비밀번호 찾기 ★ </h2></legend>
+                            <label>이메일<input type="email" name="email" id="email" placeholder=" abc@defg.com"
+                                    required><br></label>
+                            <p></p><br>
+                        </fieldset>
+                        <input type="submit" value="취소" id="submitbtn" onclick="Id();">
+                        <input type="submit" value="확인" id="submitbtn" >
 
-    <label id="idLabel">아이디<input type="text" name="userId" id="userId" placeholder=" 아이디를 입력해주세요." required><br></label>
-    <p></p><br>
-    <label>이름<input type="text" name="userName" id="userName" placeholder=" 이름을 입력해주세요." required><br></label>
-    <p></p><br>
+                    </table>
+          		</form>
+          		<script>
+          			function Id(){
+          				const url="<%= request.getContextPath()%>/member/Id";
+          				
+          				open(url,"");
+          			}
+          		</script>
+                    <br><br><br><br><br><br>
+                    <br><br><br><br><br><br>
+                  </div>  
 
-    <label>휴대폰번호<input type="text" name="phone" id="phone" placeholder="  (-없이)01012349876" required><br></label>
-    <p></p><br>
+				<div>
+				 <form action="<%= request.getContextPath()%>/member/Pwd" method="post">
+                    <hr id="hr1">
+                    <h1> ID ● PWD 찾기</h1>
+                    <hr id="hr2">
+                    <table>
 
-    <label>이메일<input type="email" name="email" id="email" placeholder=" abc@defg.com" required><br></label>
-    <p></p><br>
-</fieldset>
-<input type="submit" value="취소"  id="submitbtn">
-<input type="submit" value="확인"  id="submitbtn">
+                        <fieldset>
+                            <legend>
+                                <h2> ★ 비밀번호 찾기 ★ </h2>
+                            </legend>
 
-</table>
+                            <label id="idLabel">아이디<input type="text" name="userId" id="userId"
+                                    placeholder=" 아이디를 입력해주세요." required><br></label>
+                            <p></p><br>
+                            <label>이름<input type="text" name="userName" id="userName" placeholder=" 이름을 입력해주세요."
+                                    required><br></label>
+                            <p></p><br>
 
-    </section>
-   </form> 
-    <%@ include file="/views/common/footer.jsp" %>
+                            <label>휴대폰번호<input type="text" name="phone" id="phone" placeholder="  (-없이)01012349876"
+                                    required><br></label>
+                            <p></p><br>
+
+                            <label>이메일<input type="email" name="email" id="email" placeholder=" abc@defg.com"
+                                    required><br></label>
+                            <p></p><br>
+                        </fieldset>
+                        <input type="submit" value="취소" id="submitbtn" onclick="Pwd"();>
+                        <input type="submit" value="확인" id="submitbtn">
+
+                    </table>
+                 </form>
+                 <script>
+                 function Pwd(){
+       				const url="<%= request.getContextPath()%>/member/Pwd?userId="+$("#userId").val();
+       				const status="left=500px,top=200px,width=400px,height=210px";
+       				open(url,"");
+       			}
+                 </script>
+          	
+			  </div>
+        </section>
+<%@ include file="/views/common/footer.jsp" %>

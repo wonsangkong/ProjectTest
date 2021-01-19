@@ -30,9 +30,8 @@
                         <tr>
                             <td colspan="2">
                                 <div id="login_form_etc">
-                                    <a id="a1" href="<%= request.getContextPath()%>/member/agreement">회원가입</a> 
-                                    <a id="a2" href="<%= request.getContextPath()%>/member/Id">ID 찾기</a> 
-                                    <a id="a3" href="<%= request.getContextPath()%>/member/IdAndPwd">PWD 찾기</a>
+                                    <a id="a1" href="<%= request.getContextPath()%>/member/signup">회원가입</a> 
+                                    <a id="a2" href="<%= request.getContextPath()%>/member/Id">ID/PWD찾기</a>
                                 </div>
                             </td>
                         </tr>

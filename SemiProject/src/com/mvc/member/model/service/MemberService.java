@@ -19,4 +19,19 @@ public class MemberService {
 	public int signupMember(Member member) {
 		return dao.insertMember(member);
 	}
+	
+	public int Pwd(String id, String pwd) {
+		Connection conn = getConnection();
+		int result = dao.Pwd(conn, id, pwd);
+		
+		if (result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+				
+		close(conn);
+		
+		return result;
+	}
 }

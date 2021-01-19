@@ -14,7 +14,8 @@
 
             <div id="footer_2">
                     <p id="p1">
-                    대표전화번호 : 000 - 000 - 0000&nbsp; / &nbsp;info@carry.kr
+                    대표전화번호 : 000 - 000 - 0000&nbsp;
+                    &nbsp;info@carry.kr
                 </p>
                 <p id="p2">
                     <br>&#169;CARRY FUNDING Co., Ltd.
