@@ -24,11 +24,11 @@
         <label id="idLabel">아이디<input type="text" name="userId" id="userId" placeholder="(4글자이상)" required>
         <input type="button" value="중복검사" ><br></label>
         <p></p><br>
-        <label>비밀번호<input type="password" name="userPwd1" id="userPwd1" required><br>
+        <label>비밀번호<input type="password" name="userPwd" id="userPwd1" required><br>
         <label class="hint">영문자, 숫자, 특수문자(!@#$%...)를 조합한 8자 이상</label></label>
         <p></p><br>
         
-        <label>비밀번호 확인<input type="password" name="userPwd2" id="userPwd2" required><br></label>
+        <label>비밀번호 확인<input type="password" name="userPwd" id="userPwd2" required><br></label>
         <p></p><br>
         
         <label>이름<input type="text" name="userName" id="userName" required><br></label>
