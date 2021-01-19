@@ -3,12 +3,15 @@ package com.mvc.project.model.vo;
 import java.sql.Date;
 
 public class CarryProject {
+	// 1.19 수정사항 rowNum, AttainmentPercent 추가
 	private int projectNo;
+	private int rowNum;
 	private String projectTitle;
 	private String userId;
 	private String projectCompany;
 	private int targetAmount;
 	private int reachAmount;
+	private int AttainmentPercent;
 	private Date projectEnrolldate;
 	private Date projectModifydate;
 	private Date projectEnddate;
@@ -24,16 +27,18 @@ public class CarryProject {
 	public CarryProject() {
 	}
 
-	public CarryProject(int projectNo, String projectTitle, String userId, String projectCompany, int targetAmount,
-			int reachAmount, Date projectEnrolldate, Date projectModifydate, Date projectEnddate,
-			String imgOriginalName, String imgRenamedName, String projectContent, String projectCheck, int projectCount,
-			int projectLike, String projectStatus, int createNo) {
+	public CarryProject(int projectNo, int rowNum, String projectTitle, String userId, String projectCompany,
+			int targetAmount, int reachAmount, int attainmentPercent, Date projectEnrolldate, Date projectModifydate,
+			Date projectEnddate, String imgOriginalName, String imgRenamedName, String projectContent,
+			String projectCheck, int projectCount, int projectLike, String projectStatus, int createNo) {
 		this.projectNo = projectNo;
+		this.rowNum = rowNum;
 		this.projectTitle = projectTitle;
 		this.userId = userId;
 		this.projectCompany = projectCompany;
 		this.targetAmount = targetAmount;
 		this.reachAmount = reachAmount;
+		AttainmentPercent = attainmentPercent;
 		this.projectEnrolldate = projectEnrolldate;
 		this.projectModifydate = projectModifydate;
 		this.projectEnddate = projectEnddate;
@@ -53,6 +58,14 @@ public class CarryProject {
 
 	public void setProjectNo(int projectNo) {
 		this.projectNo = projectNo;
+	}
+
+	public int getRowNum() {
+		return rowNum;
+	}
+
+	public void setRowNum(int rowNum) {
+		this.rowNum = rowNum;
 	}
 
 	public String getProjectTitle() {
@@ -93,6 +106,14 @@ public class CarryProject {
 
 	public void setReachAmount(int reachAmount) {
 		this.reachAmount = reachAmount;
+	}
+
+	public int getAttainmentPercent() {
+		return AttainmentPercent;
+	}
+
+	public void setAttainmentPercent(int attainmentPercent) {
+		AttainmentPercent = attainmentPercent;
 	}
 
 	public Date getProjectEnrolldate() {
@@ -185,13 +206,14 @@ public class CarryProject {
 
 	@Override
 	public String toString() {
-		return "CarryProject [projectNo=" + projectNo + ", projectTitle=" + projectTitle + ", userId=" + userId
-				+ ", projectCompany=" + projectCompany + ", targetAmount=" + targetAmount + ", reachAmount="
-				+ reachAmount + ", projectEnrolldate=" + projectEnrolldate + ", projectModifydate=" + projectModifydate
-				+ ", projectEnddate=" + projectEnddate + ", imgOriginalName=" + imgOriginalName + ", imgRenamedName="
-				+ imgRenamedName + ", projectContent=" + projectContent + ", projectCheck=" + projectCheck
-				+ ", projectCount=" + projectCount + ", projectLike=" + projectLike + ", projectStatus=" + projectStatus
-				+ ", createNo=" + createNo + "]";
+		return "CarryProject [projectNo=" + projectNo + ", rowNum=" + rowNum + ", projectTitle=" + projectTitle
+				+ ", userId=" + userId + ", projectCompany=" + projectCompany + ", targetAmount=" + targetAmount
+				+ ", reachAmount=" + reachAmount + ", AttainmentPercent=" + AttainmentPercent + ", projectEnrolldate="
+				+ projectEnrolldate + ", projectModifydate=" + projectModifydate + ", projectEnddate=" + projectEnddate
+				+ ", imgOriginalName=" + imgOriginalName + ", imgRenamedName=" + imgRenamedName + ", projectContent="
+				+ projectContent + ", projectCheck=" + projectCheck + ", projectCount=" + projectCount
+				+ ", projectLike=" + projectLike + ", projectStatus=" + projectStatus + ", createNo=" + createNo + "]";
 	}
-
+	
+	
 }
