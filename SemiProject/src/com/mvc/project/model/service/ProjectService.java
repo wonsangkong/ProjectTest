@@ -43,5 +43,30 @@ public class ProjectService {
 
 		return result;
 	}
+	
+	// 1.20 프로젝트 게시글 db에 저장하는 메소드 추가
+	public int saveProject(CarryProject project) {
+		int result = 0;
+		
+		Connection conn = getConnection();
+		
+		// 글쓰기에는 첫 번호가 없다 -> insert실행, 글수정에는 기존 번호가 있다 -> update실행 
+		if(project.getProjectNo() != 0) {
+//			result = new ProjectDAO().updateProject(conn, board);
+		} else {
+			result = new ProjectDAO().insertProject(conn, project);
+		}
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+		
+	}
 
 }

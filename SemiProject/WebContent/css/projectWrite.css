@@ -1,0 +1,113 @@
+@charset "UTF-8";
+		/* 1.20 projectWrite 부분 css */
+        /* section 부분 */
+        
+        #pUploadImg {
+            margin-top: 80px;
+            text-align: center;
+        }
+        
+        h1 {
+            width: 800px;
+            height: 50px;
+            margin-top: 50px;
+            margin-left: 100px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            font-weight: 900;
+            border: 1px solid;
+            border-style: outset;
+            border-radius: 50px;
+            background-color: black;
+            color: white;
+        }
+
+        #pUploadContainer p {
+            width: 700px;
+            /* margin: 30px; */
+            margin-left: 120px;
+            font-weight: lighter;
+            color: red;
+        }
+
+        #pUploadContainer span {
+            color:gray;
+            font-size: 12px;
+            font-weight: lighter;
+        }
+
+        #pUploadJoinFrm, #pUploadDetailFrm {
+            height: 300px;
+            padding: 20px;
+            margin-top: 30px;
+            margin-left: 130px;
+        }
+
+        #pUploadJoinFrm table,  #pUploadDetailFrm table {
+            margin-left: 120px;
+        }
+
+        #pUploadJoinFrm th, #pUploadDetailFrm th {
+            height: 50px;
+            font-size: 16px;
+            font-weight: bolder;
+            text-align: left;
+        }
+
+        #pUploadJoinFrm td{
+            height: 50px;
+            font-size: 16px;
+            font-weight: bolder;
+       
+        }
+
+        #pUploadDetailFrm td{
+            height: 50px;
+            font-size: 16px;
+            font-weight: bolder;
+        
+        }
+
+        #pUploadJoinFrm input {
+            width: 200px;
+            height: 30px;
+            margin-left: 85px;
+        }
+
+        #pUploadDetailFrm input {
+            width: 200px;
+            height: 30px;
+            margin-left: 65px;
+        }
+
+        #pUploadJoinFrm input[type="button"] {
+            width: 80px;
+            height: 35px;
+            margin: auto;
+        }
+
+        #pUploadDetailFrm input[type="button"] {
+            width: 30px;
+            margin: auto;
+        }
+
+        section textarea {
+            width: 390px;
+        }
+
+
+        #projectButton {
+            text-align: center;
+            /* margin-bottom: 10px; */
+        }
+
+        #projectButton>input {
+            width: 100px;
+            height: 30px;
+            margin-left: 10px;
+            border-radius: 10px;
+            border-style: solid;
+            background-color:gray;
+            color: white;
+        }

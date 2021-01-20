@@ -253,9 +253,24 @@ SELECT COUNT(*) FROM CARRYFUNDING_PROJECT WHERE PROJECT_STATUS = 'Y' AND PROJECT
 --JOIN MEMBER M ON(P.CREATOR_NO = M.USER_NO)
 --WHERE P.PROJECT_STATUS = 'Y' AND P.PROJECT_CHECK = 'Y'
 
+-- 프로젝트 저장 하는 쿼리문(INSERT 사용) 수정중...
+--INSERT INTO CARRYFUNDING_PROJECT VALUES(
+--    SEQ_PROJECT_NO.NEXTVAL,?,?,?,0,?,DEFAULT,?,
+--    ?,?,?,'N',DEFAULT,DEFAULT,DEFAULT,?
+--);
+
 --------------------------------------------------------------------
 ------------------------- Board 관련 테이블 --------------------------
 --------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,3 +1,4 @@
+<%@page import="com.mvc.member.model.vo.Member"%>
 <%@page import="com.mvc.project.model.vo.CarryProject"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -17,6 +18,6 @@
 	<%= project.getProjectNo() %> <br>
 	<%= project.getUserId() %> <br>
 	<%= project.getProjectContent() %> <br>
-	
+	<%= project.getProjectEnrolldate() %>
 </body>
 </html>

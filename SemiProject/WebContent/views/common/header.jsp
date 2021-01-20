@@ -30,7 +30,7 @@
                         <tr>
                             <td colspan="2">
                                 <div id="login_form_etc">
-                                    <a id="a1" href="<%= request.getContextPath()%>/member/signup">회원가입</a> 
+                                    <a id="a1" href="<%= request.getContextPath()%>/member/agreement">회원가입</a> 
                                     <a id="a2" href="<%= request.getContextPath()%>/member/Id">ID/PWD찾기</a>
                                 </div>
                             </td>
@@ -80,7 +80,7 @@
             </div>
             <div id="navi_2">
                 <a href="">
-                    <img src="resources/logo.PNG" id="home_logo" width="250px">
+                    <img src="<%= request.getContextPath() %>/resources/logo.PNG" id="home_logo" width="250px">
                 </a>
             </div>
             <div id="navigator">
@@ -92,7 +92,8 @@
                             <li><a href="">오픈예정</a></li>
                         </ul>
                     </li>
-                    <li><a href="">프로젝트 신청하기</a></li>
+                    <!-- 1.20 승현 프로젝트 신청하기 동의 페이지 이동 -->
+                    <li><a href="<%= request.getContextPath() %>/project/projectwriteagree">프로젝트 신청하기</a></li>
                 </ul>
                 <ul id="navi_3">
                     <li><a href="">커뮤니티</a></li>

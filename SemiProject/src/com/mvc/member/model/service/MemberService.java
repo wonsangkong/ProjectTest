@@ -58,6 +58,19 @@ public class MemberService {
 		
 		return member != null;
 	}
+
+	// 1.20 승현 projectwrite에서 필요한 member 부분 메소드 추가	
+	public Member findMemberForPro(String userId) {
+		Connection conn = getConnection();
+		
+		Member member = dao.findMemberById(conn, userId);
+		
+		close(conn);
+		
+		return member;
+	}
+	
+
 }
 
 

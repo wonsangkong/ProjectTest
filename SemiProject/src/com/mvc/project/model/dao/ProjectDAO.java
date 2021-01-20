@@ -148,5 +148,48 @@ public class ProjectDAO {
 		return result;				
 				
 	}
+	
+	// 1월 20일 승현 프로젝트 게시판 sql에 입력 추가(저장기능)
+	public int insertProject(Connection conn, CarryProject project) {
+		PreparedStatement pstmt = null;
+		int result = 0;		
+		
+		try {
+			pstmt = conn.prepareStatement("INSERT INTO CARRYFUNDING_PROJECT VALUES(\r\n"
+					+ "    SEQ_PROJECT_NO.NEXTVAL,?,?,?,0,DEFAULT,DEFAULT,SYSDATE,\r\n"
+					+ "    ?,?,?,'N',DEFAULT,DEFAULT,DEFAULT,?\r\n"
+					+ ")");
+			
+			pstmt.setString(1, project.getProjectTitle());
+			pstmt.setString(2, project.getProjectCompany());
+			pstmt.setInt(3, project.getTargetAmount());
+//			pstmt.setDate(4, project.getProjectEnrolldate());
+//			pstmt.setDate(5, project.getProjectEnddate());
+			pstmt.setString(4, project.getImgOriginalName());
+			pstmt.setString(5, project.getImgRenamedName());
+			pstmt.setString(6, project.getProjectContent());
+			pstmt.setInt(7, project.getCreateNo());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
