@@ -168,4 +168,53 @@ public class MemberDao {
 		
 		return member;
 	}
+	
+	/** 1/20 원상 회원정보 수정 관련 메소드 추가 */
+
+	public int editUserInfo(Connection conn, Member member) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement("UPDATE MEMBER SET USER_NAME=?,PHONE=?,EMAIL=?,ADDRESS=?,USER_MODIFY_DATE=SYSDATE WHERE USER_ID=?");
+			
+			pstmt.setString(1, member.getUserName());			
+			pstmt.setString(2, member.getPhone());
+			pstmt.setString(3, member.getEmail());
+			pstmt.setString(4, member.getAddress());
+			pstmt.setString(5, member.getUserId());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	/** 1/20 원상 비밀번호 변경 관련 메소드 추가 */
+	
+	public int changePassword(Connection conn, String id, String pwd) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement("UPDATE MEMBER SET USER_PWD=? WHERE USER_ID=?");
+			
+			pstmt.setString(1, pwd);
+			pstmt.setString(2, id);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }

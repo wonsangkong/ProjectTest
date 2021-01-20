@@ -97,7 +97,14 @@
                 </ul>
                 <ul id="navi_3">
                     <li><a href="">커뮤니티</a></li>
+                    
+                    <!--************ 1/20 원상 마이페이지 경로 수정사항 ************-->
+                                        
+                    <% if(!(loginMember == null)) { %>             
+                    <li><a href="<%= request.getContextPath() %>/member/editUserInformation?userId=<%= loginMember.getUserId() %>">마이페이지</a></li>
+                    <% } else {%>
                     <li><a href="">마이페이지</a></li>
+                    <% } %>
                 </ul>
             </div>   
         </header>

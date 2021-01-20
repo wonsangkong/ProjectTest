@@ -70,6 +70,40 @@ public class MemberService {
 		return member;
 	}
 	
+	/** 1/20 원상 회원정보 수정 관련 메소드 추가 */
+	
+	public int editUserInfo(Member member) {
+		Connection conn = getConnection();
+		int result = dao.editUserInfo(conn, member);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+	
+	/** 1/20 원상 비밀번호 변경 관련 메소드 추가 */
+
+	public int changePassword(String id, String pwd) {
+		Connection conn = getConnection();
+		int result = dao.changePassword(conn, id, pwd);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+	
 
 }
 
