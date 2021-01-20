@@ -1,28 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/views/common/header.jsp" %>
 
+<%@ include file="/views/common/header.jsp" %>
 	 <section>
-            <p>포인트 충전</p>
-            <div id="pointInfo">
-                <p>
-                    저희 carry funding에서는 포인트 충전 후 현금처럼 사용이 가능합니다. <br>
-                    원하시는 충전 금액을 선택해 주세요!
-                </p>
-            
-                <form name="choosePoint" action="" > 
-                    <label for="point1"><input type="radio" id="point1" name="point" value="10000"> 10,000point</label>
-                    <label for="point2"><input type="radio" id="point2" name="point" value="30000"> 30,000point</label>
-                    <label for="point3"><input type="radio" id="point3" name="point" value="50000"> 50,000point</label><br>
-                    <label for="point4"><input type="radio" id="point4" name="point" value="100000">100,000point</label>
-                    <label for="point5"><input type="radio" id="point5" name="point" value="200000">200,000point</label>
-                    <label for="point6"><input type="radio" id="point6" name="point" value="300000">300,000point</label>
-                </form>
-                <form name="paymentInformation" action="">
+        <p>포인트 충전</p>
+        	<!--2021/01/20 (이슬) section 밑으로 내용 전체적으로 감싸는 form 추가/ 내부에 두단락으로 나뉘었던 form태그 삭제 / 라디오버튼 name을 point에서 paymentAmount로 변경 / 은행명 select의 name을 bank에서 bankName으로 변경-->
+            <form name="chargingPointFrm" action="<%= request.getContextPath()%>/member/point" method="POST">
+                <div id="pointInfo">
+                    <p>
+                        저희 carry funding에서는 포인트 충전 후 현금처럼 사용이 가능합니다. <br>
+                        원하시는 충전 금액을 선택해 주세요!
+                    </p>
+                   
+                    <label for="point0"><input type="radio" id="point0" name="paymentAmount" value="10000"> 10,000point</label>
+                    <label for="point1"><input type="radio" id="point1" name="paymentAmount" value="30000"> 30,000point</label>
+                    <label for="point2"><input type="radio" id="point2" name="paymentAmount" value="50000"> 50,000point</label><br>
+                    <label for="point3"><input type="radio" id="point3" name="paymentAmount" value="100000">100,000point</label>
+                    <label for="point4"><input type="radio" id="point4" name="paymentAmount" value="200000">200,000point</label>
+                    <label for="point5"><input type="radio" id="point5" name="paymentAmount" value="300000">300,000point</label>
+                
                     <div id="paymentInfo">
                         <p>
                             입금할 은행 선택 : 
-                            <select name="Bank" id="selectBank">
+                            <select name="bankName" id="selectBank">
                                 <option value="">은행선택</option>
                                 <option value="국민">국민</option>
                                 <option value="신한">신한</option>
@@ -42,7 +42,8 @@
                         <input type="submit" id="doChargingSubmit" value="충전하기" >
                         <input type="reset" value="취소하기">
                     </div>
-                </form>
+                </div>
+            </form>
         </section>
 
 <%@ include file="/views/common/footer.jsp" %>

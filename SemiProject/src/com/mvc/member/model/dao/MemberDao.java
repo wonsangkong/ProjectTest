@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 import static com.mvc.common.jdbc.JDBCTemplate.*;
 import com.mvc.member.model.vo.Member;
+import com.mvc.member.model.vo.Payer;
 
 public class MemberDao {
 
@@ -233,6 +234,32 @@ public class MemberDao {
 		} finally {
 			close(pstmt);
 		}
+		
+		return result;
+	}
+	
+	// 2021/01/20 (이슬) 포인트 충전하기 후 나오는 폼에서 입력한 정보 받아오기
+	public int insertPointInfo(Connection conn, Payer payer) {
+		int result = 0;
+		String query = "";
+		PreparedStatement pstmt = null;
+		
+		try {
+			query = "INSERT INTO POINT_CHARGING VALUES(SEQ_PAYMENT_NO.NEXTVAL, ?, ?, ?, SYSDATE, NULL, 'Y', ?)";
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, payer.getPaymentAmount());
+			pstmt.setString(2, payer.getBankName());
+			pstmt.setInt(3, payer.getAccountNumber());
+			pstmt.setInt(4, payer.getPayerNo());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
 		
 		return result;
 	}

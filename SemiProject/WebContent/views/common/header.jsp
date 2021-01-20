@@ -67,7 +67,7 @@
                                 <%} else { %>
                                 	포인트 : <a><%= loginMember.getUserCoin() %>p</a>
                                 	<%-- 이슬 추가사항 <br>태그포함 인풋태그로 포인트충전하기버튼 추가 --%>
-                                	<br><a href="<%= request.getContextPath()%>/member/point"><input type="button" id="addPoint" value="포인트충전하기"></a>
+                                	<br><input type="button" id="addPoint" value="포인트충전하기" onclick="location.href ='<%= request.getContextPath()%>/member/point';">
                                 <%} %></p>
 		                    </td>
 		                </tr>
@@ -80,7 +80,8 @@
             </div>
             <div id="navi_2">
                 <a href="">
-                    <img src="<%= request.getContextPath() %>/resources/logo.PNG" id="home_logo" width="250px">
+                	<!-- 2021/01/20 이슬 img 경로를 여기로 잡으니 안깨지네요.. -->
+                    <img src="<%=request.getContextPath() %>/img/home_logo.png" id="home_logo" width="250px">
                 </a>
             </div>
             <div id="navigator">
