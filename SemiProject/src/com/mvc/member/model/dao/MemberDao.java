@@ -106,17 +106,16 @@ public class MemberDao {
       return result;
    }
    
-	public int Pwd(Connection conn, String id, String pwd) {
+   // (은주) 1/20일 변경
+	public int Pwd(Connection conn, String id) {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
 		try {
-			pstmt = conn.prepareStatement("UPDATE MEMBER SET USER_PWD=? WHERE USER_ID=?");
+			pstmt = conn.prepareStatement("SELECT * FROM MEMBER WHERE USER_ID=?");
 			
-			pstmt.setString(1, pwd);
-			pstmt.setString(2, id);
+			pstmt.setString(1, id);
 			
-			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -125,6 +124,26 @@ public class MemberDao {
 				
 		return result;
 	}
+	
+//	public int changePwd(Connection conn, String id, String pwd) {
+//		int change = 0;
+//		PreparedStatement pstmt = null;
+//		
+//		try {
+//			pstmt = conn.prepareStatement("UPDATE MEMBER SET USER_PWD=? WHERE USER_ID=?");
+//			
+//			pstmt.setString(1, pwd);
+//			pstmt.setString(2, id);
+//			
+//			change = pstmt.executeUpdate();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			close(pstmt);
+//		}
+//				
+//		return change;
+//	}
 	
 	   /** 
 		Member findMemberById 추가.  

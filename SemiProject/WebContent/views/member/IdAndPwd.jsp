@@ -14,7 +14,8 @@
         <div id="na">
 
             <a href="">
-                <img src="resources/logo.PNG" width="250px">
+            <!--(은주 1/20일 이미지 코드변경 -->
+                <img src="<%= request.getContextPath()%>/resources/logo.PNG" width="250px">
             </a>
         </div>
     </header>

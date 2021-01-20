@@ -31,9 +31,10 @@ public class MemberService {
 		return result;
 	}
 	
-	public int Pwd(String id, String pwd) {
+	//(은주) 1/20일 변경.
+	public int Pwd(String id) {
 		Connection conn = getConnection();
-		int result = dao.Pwd(conn, id, pwd);
+		int result = dao.Pwd(conn, id);
 		
 		if (result > 0) {
 			commit(conn);
@@ -45,6 +46,21 @@ public class MemberService {
 		
 		return result;
 	}
+	
+//	public int changePwd(String id, String pwd) {
+//		Connection conn = getConnection();
+//		int change = dao.changePwd(conn, id, pwd);
+//		
+//		if (change > 0) {
+//			commit(conn);
+//		} else {
+//			rollback(conn);
+//		}
+//				
+//		close(conn);
+//		
+//		return change;
+//	}
 	
 	/**
 	validate 메소드 추가.(아이디 중복 관련 메소드, Dao 클래스와 연결)

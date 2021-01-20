@@ -28,26 +28,16 @@ public class MemberPwdServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");
-		String msg = "";
-		String loc = "/";
-		String script = null;
 		
 		System.out.println("userId : " + userId + ", userPwd : " + userPwd);
 		
 		int result = new MemberService().Pwd(userId, userPwd);		
 		
-		if(result > 0) {
-			msg = "비밀번호가 정상적으로 변경되었습니다.";
-			script = "self.close()";
-		} else {
-			msg = "비밀번호 변경이 실패했습니다.";
-			loc= "/member/Pwd?userId=" + userId;
-		}
+		System.out.println("userPwd : " + userPwd);
+		//(은주) 1/20일 변경할 패스워드 부분 다시 작업(changePwd 부분 하면 에러나지만 값은 변경됨 다시 작업해야함)
+//		int change = new MemberService().changePwd(userId,userPwd);		
 		
-		request.setAttribute("msg", msg);
-		request.setAttribute("script", script);
-		request.setAttribute("location", loc);
-		request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/member/Pwd.jsp").forward(request, response);
 	
 	}
 
