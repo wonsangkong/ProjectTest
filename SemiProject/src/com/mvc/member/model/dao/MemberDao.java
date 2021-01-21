@@ -360,4 +360,13 @@ public class MemberDao {
 		
 		return member;
 	}
+	
+	// 2021/01/21 이슬 user_coin에 포인트 업데이트할 updatePoint 개발 중 
+	public int updatePoint(Connection conn, int payerNo, int userPoint) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+//		pstmt = conn.prepareStatement("")
+		return 0;
+	}
 }

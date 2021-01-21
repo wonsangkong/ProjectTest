@@ -45,13 +45,13 @@ public class MemberPointChargingServlet extends HttpServlet {
 		int result = new MemberService().insertPointInfo(payer);
 		
 		System.out.println(payer);
-		
+		// 2021/01/21 이슬 msg 내용 변경 / 포인트충전에 성공했습니다-> 다음단계로 넘어갑니다. / 포인트충전에 실패하였습니다 -> 다시 시도해 주세요.
 		if(result > 0) {
-			msg ="포인트 충전에 성공했습니다.";
+			msg ="다음단계로 넘어갑니다.";
 			location = "/";
 			
 		} else {
-			msg ="포인트 충전에 실패하였습니다.";
+			msg ="다시 시도해 주세요.";
 			location ="/member/point";	
 		}
 		

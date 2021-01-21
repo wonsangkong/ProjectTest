@@ -286,3 +286,53 @@
             font-size: 17px;
         }
         
+        /* 2021/01/21 이슬 포인트 충전하기 부분 누락된 css 추가 및 pointUpdate css추가  */
+        
+        #pointInfo label {
+            text-align: center;
+            font-size: 20px;
+            line-height: 80px;
+            margin: 10px;
+            padding-left: 50px;
+        }
+
+        #paymentInfo {
+            padding: 50px;
+            font-size: 15px;
+        }
+
+        #chargingOrResetB {
+            text-align: center;
+        }
+
+        #chargingOrResetB>input {
+            width: 100px;
+            background-color: white;
+            border-radius: 10px;
+        }
+        
+         #pointCheck {
+            width: 40%;
+            height: 150px;
+            text-align: center;
+            margin: auto;
+            font-size: 15px;
+        }
+		
+        #pointCheck td {
+            padding-top: 40px;
+        }
+
+        #pointCheck input {
+            height: 20px;
+        }
+
+        #pointUpdateButton {
+            width: 20%;
+            margin-left: 400px;
+            margin-top: 100px;
+            border-style: solid;
+            background-color: white;
+        }
+        
+        

@@ -45,5 +45,29 @@
                 </div>
             </form>
         </section>
+        
+        <script>
+        // 2021/01/21 (이슬) 전송 전 유효성검사 추가 / 충전금액, 은행, 계좌번호 입력 안하면 alert 뜨게 ./
+        	$("#doChargingSubmit").on("click", () => {
+        		let bankName = $("#selectBank").val();
+        		let paymentAmount = $("input:radio[name=paymentAmount]:checked").length;
+        		let accountNumber = $("#accountNumber").val().length;
+        		
+        		if(paymentAmount === 0) {
+        			alert("충전금액을 선택하세요.")
+	       			return false;	
+	       		}
+        		
+        		if(bankName.length === 0) {
+	        		alert("은행을 선택해주세요.");
+	        		return false;
+        		}
+        		
+        		if(accountNumber === 0) {
+        			alert(" 올바른 계좌번호를 입력해주세요.")
+        			return false;
+        		}	
+        	});
+        </script>
 
 <%@ include file="/views/common/footer.jsp" %>

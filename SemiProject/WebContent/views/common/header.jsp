@@ -1,9 +1,12 @@
+<%@page import="com.mvc.member.model.vo.Payer"%>
 <%@page import="com.mvc.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	Member loginMember = (Member)session.getAttribute("loginMember");
-
+	
+	// 2021/01/21 이슬 pointUpdate.jsp에서 사용할 payer객체 가져왔는데.. 되려나..?
+	Payer payer = (Payer)session.getAttribute("payer");
 %>
 <!DOCTYPE html>
 <html>
@@ -58,7 +61,7 @@
                     <table>
 		                <tr>
 		                    <td>
-		                        <img src="resources/userImg.png" alt="">
+		                        <img src="<%=request.getContextPath() %>/resources/userImg.png" alt="">
 		                    </td>
 		                    <td>
 		                        <p><%= loginMember.getUserName() %> 님 반갑습니다! <br>
