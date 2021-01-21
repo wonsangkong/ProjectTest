@@ -9,8 +9,9 @@
 
 <body>
 	<!-- 1.20 승현 프로젝트 올리기 전 동의 부분 화면구성 -->
+	<!-- 1.21 승현 post 방식으로 projectWrite.jsp로 보내기 -->
 	<section>
-	<form id="writeagreefrm" action="" method="">
+	<form id="writeagreefrm" action="<%= request.getContextPath() %>/project/projectwriteagree" method="post">
 		<div id="full1">
 	        <div>
 	            <img src="<%= request.getContextPath() %>/resources/BCP1.PNG" id="BCP1" width="950px">
@@ -24,33 +25,30 @@
 	        </div>
 	        <table>
 	            <tr>
-	                <td id="check1"><input type="checkbox" id="checkBox1" name="checkBox1"></td>
+	                <td id="check1"><input type="checkbox" id="checkBox1" name="checkBox1" value="1"></td>
 	                <td id="text1"><div id="checkdiv1">이미 시판된 제품, 현금이나 지분등의 수익제공, 단순 기부 등의 기준에 맞지 않는 선물을 제공하지 않습니다.</div></td>
 	            </tr>
 	            <tr>
-	                <td id="check1"><input type="checkbox" id="checkBox2" name="checkBox2"></td>
+	                <td id="check1"><input type="checkbox" id="checkBox2" name="checkBox2" value="1"></td>
 	                <td id="text1"><div id="checkdiv2">창작자의 신분증 혹은 사업자등록증, 은행 계좌, 연락 가능한 번호가 있습니다.</div></td>
 	            </tr>
 	        </table>
 	
-	        <input type="button" value="계속하기" class="submitCheck" id="submitbtn" onclick="location.href=('<%= request.getContextPath() %>/project/projectWrite');">
+	        <input type="submit" value="계속하기" class="submitCheck" id="submitbtn">
 	        <input type="button" value="뒤로하기" id="submitbtn" onclick="location.replace('<%= request.getContextPath()%>');">
 	        
-	        <!-- 수정 필요.... -->
+	        <!-- 1.21 승현 post 방식으로 projectWrite.jsp로 보내기 -->
 	        <script>
 			$(".submitCheck").on("click", () => {
 			
-				if(($("input:checkbox[name=checkBox1]:checked").length == 0) && ($("input:checkbox[name=checkBox2]:checked").length == 0)){
-				
-				
+				if(($("input:checkbox[name=checkBox1]:checked").length) + ($("input:checkbox[name=checkBox2]:checked").length) != 2){
 				alert("체크 후 전송해주세요.~~");
 				
 				return false;
-				
 				}
-		
+				
 			})
-	</script>
+		</script>
     	</div>
     </form>
 	</section>

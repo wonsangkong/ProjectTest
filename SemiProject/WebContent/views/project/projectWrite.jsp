@@ -16,11 +16,11 @@
         <div id="pUploadContainer">
             <form name="pUploadJoinFrm" id="pUploadJoinFrm" action="<%= request.getContextPath() %>/project/projectWrite" method="post" enctype="multipart/form-data">
                 <table>
-                    <p>기본정보는 자동입력 입니다. 업체명을 입력하세요.</p>
+                    <p>모든 항목을 입력하세요.</p>
                     <tr>
 	                    <th>개설자ID</th>
                             <td>
-                                <input type="text" name="writer" id="pOpenName" value="<%= loginMember.getUserId() %>">
+                                <input type="text" name="writer" id="pOpenName" value="<%= loginMember.getUserId() %>" readonly>
                             </td>
                     </tr>
                     <!-- <tr>
@@ -61,11 +61,11 @@
                             <td><input type="text" name="targetAmount" id="fundingAmount" placeholder="000,000,000" required></td>
                         </tr>
                         <tr>
-                            <th>프로젝트 개시일 (yy.MM.dd)형태로 입력하시오</th>
-                            <td><input type="text" name="projectStartDate" class="" id="startDate" required></td>
+                            <th>프로젝트 개시일 (yyMMdd)형태로 입력하시오</th>
+                            <td><input type="text" name="projectEnrolldate" class="" id="startDate" required></td>
                         </tr>
                         <tr>
-                            <th>프로젝트 마감일 (yy.MM.dd)형태로 입력하시오</th>
+                            <th>프로젝트 마감일 (yyMMdd)형태로 입력하시오</th>
                             <td><input type="text" name="projectEndDate" class="" id="endDate" required></td>
                         </tr>
                         <tr>
@@ -77,7 +77,7 @@
                         <tr>
                         	<th>프로젝트 상세내용</th>
                             <td>
-                                <textarea name="content" id="addItemNameList" cols="20" rows="7"></textarea>
+                                <textarea name="projectContent" id="addItemNameList" cols="20" rows="7"></textarea>
                             </td>
                         </tr>
                     </table>

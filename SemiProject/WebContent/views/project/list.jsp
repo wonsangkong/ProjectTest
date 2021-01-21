@@ -29,11 +29,12 @@
                    for(CarryProject project : list) {%>
                  
                 <form class="prodform">
-                    <div class="prod" id="prod1"><img src="../resources/logo.PNG" alt=""></div>
+                    <div class="prod" id="prod1"><img src="<%= request.getContextPath() %>/upload/proFile/<%= project.getImgRenamedName() %>" id="home_logo" width="250px"></div>
                     <p><a href="<%= request.getContextPath() %>/project/view?projectNo=<%= project.getProjectNo()%>">
 						<%= project.getProjectTitle() %>
 					</a></p>
                     <p>달성률(<%= project.getAttainmentPercent()%> %)</p>
+                    <p>리워드확인</p>
                 </form>
                 <%	}
                 } %>

@@ -6,6 +6,7 @@ import java.util.List;
 import com.mvc.common.util.PageInfo;
 import com.mvc.project.model.dao.ProjectDAO;
 import com.mvc.project.model.vo.CarryProject;
+import com.mvc.project.model.vo.ProjectReward;
 
 import static com.mvc.common.jdbc.JDBCTemplate.*;
 
@@ -15,11 +16,11 @@ public class ProjectService {
 	public CarryProject getProject(int projectNo) {
 //		int result = 0;
 		Connection conn = getConnection();
-		CarryProject board = new ProjectDAO().findProjectByNo(conn, projectNo);
+		CarryProject project = new ProjectDAO().findProjectByNo(conn, projectNo);
 		
 		close(conn);
 		
-		return board;
+		return project;
 	}
 
 	// 1.19 PageInfo 매개변수 추가
@@ -50,12 +51,14 @@ public class ProjectService {
 		
 		Connection conn = getConnection();
 		
-		// 글쓰기에는 첫 번호가 없다 -> insert실행, 글수정에는 기존 번호가 있다 -> update실행 
-		if(project.getProjectNo() != 0) {
+		// 나중 update 구현 시 반영 : 글쓰기에는 첫 번호가 없다 -> insert실행, 글수정에는 기존 번호가 있다 -> update실행 
+//		if(project.getProjectNo() != 0) {
 //			result = new ProjectDAO().updateProject(conn, board);
-		} else {
-			result = new ProjectDAO().insertProject(conn, project);
-		}
+//		} else {
+//			result = new ProjectDAO().insertProject(conn, project);
+//		}
+		
+		result = new ProjectDAO().insertProject(conn, project);
 		
 		if(result > 0) {
 			commit(conn);
@@ -67,6 +70,25 @@ public class ProjectService {
 		
 		return result;
 		
+	}
+	
+	// 1.21 승현 리워드 객체 받아서 dao에서 처리하도록 요청하는 서비스 메소드 추가
+	public int saveReward(ProjectReward reward) {
+		int result = 0;
+		
+		Connection conn = getConnection();
+		
+		result = new ProjectDAO().insertReward(conn, reward);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
 	}
 
 }

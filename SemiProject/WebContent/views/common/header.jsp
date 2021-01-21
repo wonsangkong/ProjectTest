@@ -79,7 +79,7 @@
                 
             </div>
             <div id="navi_2">
-                <a href="">
+                <a href="<%= request.getContextPath() %>">
                 	<!-- 2021/01/20 이슬 img 경로를 여기로 잡으니 안깨지네요.. -->
                     <img src="<%=request.getContextPath() %>/img/home_logo.png" id="home_logo" width="250px">
                 </a>

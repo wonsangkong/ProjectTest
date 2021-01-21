@@ -18,5 +18,10 @@ public class ProjectWriteAgreeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/views/project/writeagree.jsp").forward(request, response);
 	}
+	
+	// 1.21 승현 writeagree에서 체크박스에 동의하면 post로 projectWrite.jsp 보내는 서블릿
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/views/project/projectWrite.jsp").forward(request, response);
+	}
 
 }

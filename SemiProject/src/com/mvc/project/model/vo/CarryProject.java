@@ -1,9 +1,8 @@
 package com.mvc.project.model.vo;
 
-import java.sql.Date;
-
 public class CarryProject {
 	// 1.19 수정사항 rowNum, AttainmentPercent 추가
+	// 1.21 승현 date -> string으로 변환
 	private int projectNo;
 	private int rowNum;
 	private String projectTitle;
@@ -12,9 +11,9 @@ public class CarryProject {
 	private int targetAmount;
 	private int reachAmount;
 	private int AttainmentPercent;
-	private Date projectEnrolldate;
-	private Date projectModifydate;
-	private Date projectEnddate;
+	private String projectEnrolldate;
+	private String projectModifydate;
+	private String projectEnddate;
 	private String imgOriginalName;
 	private String imgRenamedName;
 	private String projectContent;
@@ -28,9 +27,10 @@ public class CarryProject {
 	}
 
 	public CarryProject(int projectNo, int rowNum, String projectTitle, String userId, String projectCompany,
-			int targetAmount, int reachAmount, int attainmentPercent, Date projectEnrolldate, Date projectModifydate,
-			Date projectEnddate, String imgOriginalName, String imgRenamedName, String projectContent,
-			String projectCheck, int projectCount, int projectLike, String projectStatus, int createNo) {
+			int targetAmount, int reachAmount, int attainmentPercent, String projectEnrolldate,
+			String projectModifydate, String projectEnddate, String imgOriginalName, String imgRenamedName,
+			String projectContent, String projectCheck, int projectCount, int projectLike, String projectStatus,
+			int createNo) {
 		this.projectNo = projectNo;
 		this.rowNum = rowNum;
 		this.projectTitle = projectTitle;
@@ -116,27 +116,27 @@ public class CarryProject {
 		AttainmentPercent = attainmentPercent;
 	}
 
-	public Date getProjectEnrolldate() {
+	public String getProjectEnrolldate() {
 		return projectEnrolldate;
 	}
 
-	public void setProjectEnrolldate(Date projectEnrolldate) {
+	public void setProjectEnrolldate(String projectEnrolldate) {
 		this.projectEnrolldate = projectEnrolldate;
 	}
 
-	public Date getProjectModifydate() {
+	public String getProjectModifydate() {
 		return projectModifydate;
 	}
 
-	public void setProjectModifydate(Date projectModifydate) {
+	public void setProjectModifydate(String projectModifydate) {
 		this.projectModifydate = projectModifydate;
 	}
 
-	public Date getProjectEnddate() {
+	public String getProjectEnddate() {
 		return projectEnddate;
 	}
 
-	public void setProjectEnddate(Date projectEnddate) {
+	public void setProjectEnddate(String projectEnddate) {
 		this.projectEnddate = projectEnddate;
 	}
 

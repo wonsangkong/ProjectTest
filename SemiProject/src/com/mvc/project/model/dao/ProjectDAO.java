@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.mvc.common.util.PageInfo;
 import com.mvc.project.model.vo.CarryProject;
+import com.mvc.project.model.vo.ProjectReward;
 
 import static com.mvc.common.jdbc.JDBCTemplate.*;
 
@@ -40,9 +41,16 @@ public class ProjectDAO {
 				project.setProjectCompany(rs.getString("PROJECT_COMPANY"));
 				project.setTargetAmount(rs.getInt("TARGET_AMOUNT"));
 				project.setReachAmount(rs.getInt("REACH_AMOUNT"));
-				project.setProjectEnrolldate(rs.getDate("PROJECT_ENROLL_DATE"));
-				project.setProjectModifydate(rs.getDate("PROJECT_MODIFY_DATE"));
-				project.setProjectEnddate(rs.getDate("PROJECT_END_DATE"));
+				
+				// 1.21 승현 date -> string으로 변환
+//				project.setProjectEnrolldate(rs.getDate("PROJECT_ENROLL_DATE"));
+//				project.setProjectModifydate(rs.getDate("PROJECT_MODIFY_DATE"));
+//				project.setProjectEnddate(rs.getDate("PROJECT_END_DATE"));
+				
+				project.setProjectEnrolldate(rs.getString("PROJECT_ENROLL_DATE"));
+				project.setProjectModifydate(rs.getString("PROJECT_MODIFY_DATE"));
+				project.setProjectEnddate(rs.getString("PROJECT_END_DATE"));
+				
 				project.setImgOriginalName(rs.getString("IMG_ORIGINAL_NAME"));
 				project.setImgRenamedName(rs.getString("IMG_RENAMED_NAME"));
 				project.setProjectContent(rs.getString("PROJECT_CONTENT"));
@@ -59,7 +67,7 @@ public class ProjectDAO {
 			close(pstmt);
 		}
 		
-		System.out.println("project : "+ project);
+		System.out.println("project : " + project);
 		
 		return project;
 	}
@@ -99,9 +107,16 @@ public class ProjectDAO {
 				project.setTargetAmount(rs.getInt("TARGET_AMOUNT"));
 				project.setReachAmount(rs.getInt("REACH_AMOUNT"));
 				project.setAttainmentPercent(rs.getInt("TRIM((REACH_AMOUNT/TARGET_AMOUNT)*100)"));
-				project.setProjectEnrolldate(rs.getDate("PROJECT_ENROLL_DATE"));
-				project.setProjectModifydate(rs.getDate("PROJECT_MODIFY_DATE"));
-				project.setProjectEnddate(rs.getDate("PROJECT_END_DATE"));
+				
+				// 1.21 승현 date -> string으로 변환
+//				project.setProjectEnrolldate(rs.getDate("PROJECT_ENROLL_DATE"));
+//				project.setProjectModifydate(rs.getDate("PROJECT_MODIFY_DATE"));
+//				project.setProjectEnddate(rs.getDate("PROJECT_END_DATE"));
+				
+				project.setProjectEnrolldate(rs.getString("PROJECT_ENROLL_DATE"));
+				project.setProjectModifydate(rs.getString("PROJECT_MODIFY_DATE"));
+				project.setProjectEnddate(rs.getString("PROJECT_END_DATE"));
+				
 				project.setImgOriginalName(rs.getString("IMG_ORIGINAL_NAME"));
 				project.setImgRenamedName(rs.getString("IMG_RENAMED_NAME"));
 				project.setProjectContent(rs.getString("PROJECT_CONTENT"));
@@ -156,19 +171,49 @@ public class ProjectDAO {
 		
 		try {
 			pstmt = conn.prepareStatement("INSERT INTO CARRYFUNDING_PROJECT VALUES(\r\n"
-					+ "    SEQ_PROJECT_NO.NEXTVAL,?,?,?,0,DEFAULT,DEFAULT,SYSDATE,\r\n"
+					+ "    SEQ_PROJECT_NO.NEXTVAL,?,?,?,0,?,DEFAULT,?,\r\n"
 					+ "    ?,?,?,'N',DEFAULT,DEFAULT,DEFAULT,?\r\n"
 					+ ")");
 			
+//			// 날짜 무시하고 데이터 입력하기
+//			pstmt = conn.prepareStatement("INSERT INTO CARRYFUNDING_PROJECT VALUES(\r\n"
+//					+ "    SEQ_PROJECT_NO.NEXTVAL,?,?,?,0,DEFAULT,DEFAULT,SYSDATE,\r\n"
+//					+ "    ?,?,?,'N',DEFAULT,DEFAULT,DEFAULT,?\r\n"
+//					+ ")");
+			
+//			pstmt.setString(1, "SEQ_PROJECT_NO.NEXTVAL");
 			pstmt.setString(1, project.getProjectTitle());
 			pstmt.setString(2, project.getProjectCompany());
 			pstmt.setInt(3, project.getTargetAmount());
-//			pstmt.setDate(4, project.getProjectEnrolldate());
-//			pstmt.setDate(5, project.getProjectEnddate());
-			pstmt.setString(4, project.getImgOriginalName());
-			pstmt.setString(5, project.getImgRenamedName());
-			pstmt.setString(6, project.getProjectContent());
-			pstmt.setInt(7, project.getCreateNo());
+			pstmt.setString(4, project.getProjectEnrolldate());
+			pstmt.setString(5, project.getProjectEnddate());
+			pstmt.setString(6, project.getImgOriginalName());
+			pstmt.setString(7, project.getImgRenamedName());
+			pstmt.setString(8, project.getProjectContent());
+			pstmt.setInt(9, project.getCreateNo());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	// 1.21 승현 리워드 저장 메소드 추가
+	public int insertReward(Connection conn, ProjectReward reward) {
+		PreparedStatement pstmt = null;
+		int result = 0;	
+		
+		try {
+			pstmt = conn.prepareStatement("INSERT INTO REWARD VALUES(\r\n"
+					+ "    SEQ_REWARD_NO.NEXTVAL, ?, ?, ?\r\n"
+					+ ")");
+			pstmt.setString(1, reward.getRewardName());
+			pstmt.setInt(2, reward.getRewardPrice());
+			pstmt.setInt(3, reward.getProNo());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
