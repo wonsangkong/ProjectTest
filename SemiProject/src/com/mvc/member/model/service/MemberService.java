@@ -48,6 +48,12 @@ public class MemberService {
 		return result;
 	}
 	
+	//(은주) 1/21일 변경.
+	public Member pwd(String Id, String pon) {
+		Connection conn = getConnection();
+		return dao.pwd(conn, Id , pon);
+	}
+	
 //	public int changePwd(String id, String pwd) {
 //		Connection conn = getConnection();
 //		int change = dao.changePwd(conn, id, pwd);
@@ -154,6 +160,16 @@ public class MemberService {
 		return result;
 	}
 	
+	//(은주) 1/21일 id찾기 
+	public boolean idfind(String userName, String phone, String email) {
+		Connection conn = getConnection();
+		
+		Member member = dao.idfind(conn, userName, phone, email);
+		
+		close(conn);
+		
+		return member != null;
+	}
 
 }
 

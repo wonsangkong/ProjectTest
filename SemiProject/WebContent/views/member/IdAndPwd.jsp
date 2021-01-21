@@ -14,6 +14,7 @@
         <div id="na">
 
             <a href="">
+            <!--(은주) 1/21일 아이디찾기 밑에부분에 스크립트 지워주세요. -->
             <!--(은주 1/20일 이미지 코드변경 -->
                 <img src="<%= request.getContextPath()%>/resources/logo.PNG" width="250px">
             </a>
@@ -49,18 +50,11 @@
                                     required><br></label>
                             <p></p><br>
                         </fieldset>
-                        <input type="submit" value="취소" id="submitbtn" onclick="Id();">
+                        <input type="submit" value="취소" id="submitbtn" >
                         <input type="submit" value="확인" id="submitbtn" >
 
                     </table>
           		</form>
-          		<script>
-          			function Id(){
-          				const url="<%= request.getContextPath()%>/member/Id";
-          				
-          				open(url,"");
-          			}
-          		</script>
                     <br><br><br><br><br><br>
                     <br><br><br><br><br><br>
                   </div>  
@@ -92,18 +86,11 @@
                                     required><br></label>
                             <p></p><br>
                         </fieldset>
-                        <input type="submit" value="취소" id="submitbtn" onclick="Pwd"();>
+                        <input type="submit" value="취소" id="submitbtn" onclick="close();";>
                         <input type="submit" value="확인" id="submitbtn">
 
                     </table>
                  </form>
-                 <script>
-                 function Pwd(){
-       				const url="<%= request.getContextPath()%>/member/Pwd?userId="+$("#userId").val();
-       				const status="left=500px,top=200px,width=400px,height=210px";
-       				open(url,"");
-       			}
-                 </script>
           	
 			  </div>
         </section>

@@ -126,25 +126,56 @@ public class MemberDao {
 		return result;
 	}
 	
-//	public int changePwd(Connection conn, String id, String pwd) {
-//		int change = 0;
-//		PreparedStatement pstmt = null;
-//		
-//		try {
-//			pstmt = conn.prepareStatement("UPDATE MEMBER SET USER_PWD=? WHERE USER_ID=?");
-//			
-//			pstmt.setString(1, pwd);
-//			pstmt.setString(2, id);
-//			
-//			change = pstmt.executeUpdate();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			close(pstmt);
-//		}
-//				
-//		return change;
-//	}
+	   // (은주) 1/21일 pwd부분/주석20일에 해둔거 다 지우시고 이걸로 변경해주세요.
+		public Member pwd(Connection conn, String id, String pon) {
+		      Member member = null;
+		      String query= null;
+		      ResultSet rset = null;
+		      PreparedStatement pstmt = null;
+		      try {
+		          Class.forName("oracle.jdbc.driver.OracleDriver");
+		          conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","FD","FD");
+		          query = "SELECT * FROM MEMBER WHERE USER_ID=? AND PHONE=?";
+		          pstmt= conn.prepareStatement(query);
+		             
+		             pstmt.setString(1, id);
+		             pstmt.setString(2, pon);
+		             
+		             rset = pstmt.executeQuery();
+		             
+		             if(rset.next()) {
+		                System.out.println(rset.getString("USER_ID"));
+		                
+		                member = new Member(
+		                      rset.getInt("USER_NO"),
+		                      rset.getString("USER_ID"),
+		                      rset.getString("USER_PWD"),
+		                      rset.getString("USER_NAME"),
+		                      rset.getString("PHONE"),
+		                      rset.getString("EMAIL"),
+		                      rset.getString("ADDRESS"),
+		                      rset.getDate("USER_ENROLL_DATE"),
+		                      rset.getDate("USER_MODIFY_DATE"),
+		                      rset.getString("USER_STATUS"),
+		                      rset.getString("USER_ROLE"),
+		                      rset.getInt("USER_COIN")
+		                      );
+		             }
+		          } catch (ClassNotFoundException e) {
+		             e.printStackTrace();
+		       } catch (SQLException e) {
+		          e.printStackTrace();
+		       } finally {
+		          try {
+		             rset.close();
+		             pstmt.close();
+		             conn.close();
+		          } catch(SQLException e) {
+		             e.printStackTrace();
+		          }
+		    }
+		       return member;
+		    }
 	
 	   /** 
 		Member findMemberById 추가.  
@@ -285,5 +316,48 @@ public class MemberDao {
 		}
 		
 		return result;
+	}
+	
+	//(은주) 1/21일 id찾기 작업중
+	public Member idfind(Connection conn, String userName, String phone, String email) {
+		Member member = null;
+		ResultSet rset = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			pstmt = conn.prepareStatement("SELECT * FROM MEMBER WHERE USER_NAME=? AND PHONE=? AND EMAIL=?");
+			
+			pstmt.setString(1, userName);
+			pstmt.setString(2, phone);
+			pstmt.setString(3, email);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				System.out.println(rset.getString("USER_ID") + ", " + rset.getString("USER_PWD"));
+				member = new Member(
+						rset.getInt("USER_NO"),
+		                rset.getString("USER_ID"),
+		                rset.getString("USER_PWD"),
+		                rset.getString("USER_NAME"),
+		                rset.getString("PHONE"),
+	                    rset.getString("EMAIL"),
+	                    rset.getString("ADDRESS"),
+	                    rset.getDate("USER_ENROLL_DATE"),
+	                    rset.getDate("USER_MODIFY_DATE"),
+	                    rset.getString("USER_STATUS"),
+	                    rset.getString("USER_ROLE"),
+	                    rset.getInt("USER_COIN")
+	                    );
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return member;
 	}
 }

@@ -27,23 +27,25 @@ public class MemverIdServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		Member member = new Member();
-//		String msg = null;
-//		
-//		member.setUserId(request.getParameter("userId"));
-//		member.setUserName(request.getParameter("userName"));
-//		member.setPhone(request.getParameter("phone"));
-//		member.setEmail(request.getParameter("email"));
-//		
-//		System.out.println(member);
-//		
-//
-//		
-//		request.setAttribute("msg", "오오!!");
-//		request.setAttribute("location", "/");
-//		
-//		request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
-	}
-	
+		//(은주)1/21일 	값을 가져와서 DB에 있는 값인지 확인하고 전달하는지 작업.
+		Member member = new Member();
+		String userName = request.getParameter("userName");
+		String phone = request.getParameter("phone");
+		String email = request.getParameter("email");
+		
+		System.out.println("userName : " + userName);
+		
+		boolean userN = new MemberService().idfind(userName,phone,email);
 
+		if(member != null) {
+			request.setAttribute("userN", userN);
+				
+			request.getRequestDispatcher("/views/member/findid.jsp").forward(request, response);
+		} else {
+			request.setAttribute("msg", "잘못입력하셨습니다~ 다시입력해주세요.");
+			request.setAttribute("location", "/views/member/IdAndPwd.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/views/common/msg.jsp");
+			dispatcher.forward(request, response);
+		}
+	}
 }
