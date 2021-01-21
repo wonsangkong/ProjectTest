@@ -263,4 +263,27 @@ public class MemberDao {
 		
 		return result;
 	}
+	
+	/** 1월 21일 원상 회원탈퇴 관련 코드 추가 */
+
+	public int updateMemberStatus(Connection conn, String id, String status) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement("UPDATE MEMBER SET USER_STATUS=? WHERE USER_ID=?");
+			
+			pstmt.setString(1, status);
+			pstmt.setString(2, id);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }

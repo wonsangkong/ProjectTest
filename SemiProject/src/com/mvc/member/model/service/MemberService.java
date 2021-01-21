@@ -137,6 +137,23 @@ public class MemberService {
 		return result;
 	}
 	
+	/** 1월 21일 원상 회원탈퇴 관련 코드 추가 */
+	
+	public int deleteMember(String id) {
+		Connection conn = getConnection();
+		int result = dao.updateMemberStatus(conn, id, "N");
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+	
 
 }
 

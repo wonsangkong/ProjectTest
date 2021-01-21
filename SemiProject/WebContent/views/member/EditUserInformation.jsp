@@ -46,7 +46,7 @@
                 <div id="buttons">
                     <button type="button" onclick="changePwd();" style="margin-right: 10px; background-color: black; color: white; border-radius: 20px; border-color: black;" >비밀번호변경</button>
 	                <input type="submit" value="정보수정" style="margin-right: 10px; background-color: black; color: white; border-radius: 20px; border-color: black;">
-	                <input type="button" value="탈퇴" style=" background-color: black; color: white; border-radius: 20px; border-color: black;">
+	                <input type="button" value="탈퇴"  onclick="deleteMember();" style=" background-color: black; color: white; border-radius: 20px; border-color: black;">
                 </div>
                 </form>
                 <form name="checkIdForm">
@@ -55,6 +55,8 @@
             </div>
 
 		<!-- ********** 1/20 원상 스크립트 추가 ********** -->
+		
+		<!-- 1월 21일 원상 회원탈퇴 관련 스크립트 deleteMember() 추가 -->
         <script>
             function changePwd(){
  			
@@ -64,6 +66,14 @@
  			open(url,"",status);
  			
  		}
+            
+            function deleteMember(){
+     			//id서버에 전송해서 그 id랑 일치하는 회원을 삭제
+     			
+     			if(confirm("정말로 탈퇴하시겠습니까?")){
+     				location.replace('<%=request.getContextPath()%>/member/delete?userId=<%=loginMember.getUserId()%>');
+     			}
+     		}            
  		</script>
  		
         </section>

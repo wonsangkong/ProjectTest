@@ -1,0 +1,155 @@
+
+/* 1월 21일 원상 프로젝트 상세페이지 관련 CSS 추가 */
+
+@charset "UTF-8";
+
+		.wrap {
+            width: 1000px;
+            height: 800px;
+            margin: auto;
+        }
+
+        /* section 부분 */
+        section {
+            width: 100%;
+            height: 100%;
+        }
+
+        #projectName {
+            margin-top: 100px;
+            width: 92%;
+            font-size: 25px;
+            text-align: center;
+            color: white;
+            background-color: gray;
+            margin-left: 42px;
+        }
+
+        #projectContent_1>table {
+            width: 85%;
+            height: 450px;
+            margin: 50px;
+            margin-left: 70px;   
+            /* border: 1px solid; */
+            line-height: 50px;
+        }
+
+        #projectContent_1 td {
+            padding: auto;
+            margin: 0 auto;
+            font-size: 15px;
+        }
+
+        #projectContent_1 td img {
+            width: 550px;
+            margin: 0 auto;
+            margin-top: 10px;
+            height: 100%;
+            box-sizing: border-box;
+            /* border: 1px solid; */
+        }
+
+        #projectContent_1 h1 {
+            font-size: 25px;
+            border-bottom: 1px inset lightgray;
+        }
+        
+        #projectContent_2 {
+        	margin-left: 64px;
+        }
+        
+        #projectContent_2>div {
+        	margin-left: 80px;
+        	float: left;
+        }
+
+        #doFundingButton {
+            width: 200px;
+            height: 40px;
+            color: black;
+            font-size: 15px;
+            font-weight: 900;
+            border-style: solid;
+            border-radius: 10px;
+            background-color: white;
+
+        }
+
+        #likeButton {
+            width: 30px;
+            height: 40px;
+            color: red;
+            font-size: 20px;
+            border-style: solid;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        #projectContent_2 {
+            float: left;
+            width: 60%;
+            height: auto;
+            /* border: 1px solid; */
+        }
+
+		.inputTag {
+			font-size: 16px;
+		}
+
+        #productInfo {
+            height: 800px;
+            
+        }
+        
+        #productInfo>span {
+        	font-size: 17px;
+        	color:white;
+        	background-color: gray;
+        	border-radius: 20px;
+        }
+
+        #productInfo img {
+            width: 100%;
+            border: 1px solid;
+        }
+
+        #projectContent_3 {
+            float: right;
+            width: 40%;
+        }
+
+        #projectContent_3> p {
+            margin-left: "50px";
+            font-size: 15px;
+            font-weight: 900;
+            padding-left: 40px;
+     
+        }
+
+        #projectContent_3 div {
+            margin: 40px;
+            padding: 10px;
+            border-style: groove;
+            background-color: lightgray;
+        }
+
+		#productInfo>p {
+			/* word-break:normal; */
+			border: 3px;
+			border-style: solid;
+			border-color: gray;
+			
+		}
+	
+        #projectContent_3 a {
+            text-decoration: none;
+            font-size: 13px;
+            color: black;
+        }
+
+        #projectContent_3 span {
+            font-weight: 600;
+            font-size: 15px;
+            
+            
+        }

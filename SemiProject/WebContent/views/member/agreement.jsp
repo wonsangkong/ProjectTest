@@ -561,11 +561,14 @@
 <%@ include file="/views/common/footer.jsp" %>
 <script>
 
+<!-- ********** 1월 21일 원상 약관동의 스크립트 수정.(둘 다 동의해야만 넘어가게끔 수정 완료) ********** -->
+<script>
+
 	$("#submitbtn").on("click", () => {
-		if($("input:checkbox[name=agreement]:checked").length == 0 ) {
-            alert("약관 동의 후 이용해주세요.");
-            
-            return false;
-         }
-    });
+    	if($("input:checkbox[name=agreement]:checked").length == 0 || $("input:checkbox[name=agreement]:checked").length == 1) {
+          	alert("약관 동의 후 이용해주세요.");
+          
+          	return false;
+       	}
+  	});
 </script>
