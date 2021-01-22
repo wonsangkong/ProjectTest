@@ -186,6 +186,33 @@ public class MemberService {
 		
 		return  result;
 	}
+	
+	// 1.22 승현 후원하는 과정에서 user 정보를 가져오는 서비스
+	public Member findMemberForfunding(int userNo) {
+		Connection conn = getConnection();
+		
+		Member member = dao.findMemberForfunding(conn, userNo);
+		
+		close(conn);
+		
+		return member;
+	}
+	
+	// 1.22 승현 project funding 값을 업데이트 하는 서비스
+	public int updateFunding(int userNo, int num1) {
+		Connection conn = getConnection();
+		int result = dao.updateFunding(conn, userNo, num1);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return  result;
+	}
 
 }
 

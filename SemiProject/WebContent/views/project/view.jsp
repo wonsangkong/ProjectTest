@@ -1,6 +1,4 @@
-
 <!-- 1월 21일 원상 프로젝트 상세페이지 관련 JSP 추가 -->
-
 <%@page import="com.mvc.member.model.vo.Member"%>
 <%@page import="com.mvc.project.model.vo.CarryProject"%>
 <%@page import="java.util.ArrayList"%>
@@ -14,25 +12,31 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/view.css">
 <body>
     <div class="wrap">
-
+		
         <section>
+        	<form action="<%= request.getContextPath() %>/project/funding" method="post">
+        	<input type="hidden" name="userNo" value="<%= loginMember.getUserNo()%>">
+        	<input type="hidden" name="projectNo" value="<%= project.getProjectNo()%>">
             <div id="itemDetailPageContainer">
                 <!-- 선택한 프로젝트의 카테고리명과 프로젝트명이 보이게 -->
                 <!-- 카테고리명 삭제 --> 
-                <div id="projectName">프로젝트명</div>
+                <div id="projectName"><%= project.getProjectTitle() %></div>
                 
                 <div id="projectContent_1">
                     <table>
                         <tr>
                             <td colspan="">
-                                <img src="resources/logo.PNG" alt="">
+                                <img src="<%= request.getContextPath() %>/upload/proFile/<%= project.getImgRenamedName() %>">
                             </td>
                             <td>
-                                <h1>XX일 남음</h1>
-                                <p>xx%달성</p>
-                                <p>000,000,000원 펀딩</p>
-                                <p>xx명 펀딩</p>
-                                <input type="button" id="doFundingButton" value="펀딩하기">
+                                <h3><%= project.getProjectEnddate() %> 마감예정</h3>
+                                <p>달성률 : <%= project.getAttainmentPercent() %> %</p>
+                                <p>모인 금액 : <%= project.getReachAmount() %> 원</p>
+                                <p>목표 금액 : <%= project.getTargetAmount() %> 원</p>
+                                <p></p>
+                                <!-- <p>xx명 펀딩</p> -->
+                                <input type="text" id="fundingPrice" name="fundingPrice" placeholder="펀딩할 금액 입력해주세요">
+                                <input type="submit" id="doFundingButton" value="펀딩하기">
                                 <input type="button" id="likeButton" value="&hearts;">
                             </td>
                     </table>
@@ -47,11 +51,15 @@
                 </div>
                 <div id="productInfo" style="text-align: center; position: absolute; margin-top: 100px; margin-left: 85px; width:26%;" >
                 	<span>&nbsp;&nbsp;&nbsp;* 제품 설명 *&nbsp;&nbsp;&nbsp;</span>
-                	<p>               	
-                		정말 예쁜 가방입니다.<br><br>
-                		무조건 사셔야 하는 핫템입니다 !<br><br><br><br><br><br><br>
-                		안 사면 밤에 잡으러 갑니다잉~~
+                	<p> 
+                	<br>              	
+                		<%= project.getProjectContent() %>
+                	<br>
+                	<br>	
                 	</p>
+                	<br>
+                	<p>업체명 : <%= project.getProjectCompany() %></p>
+                	<input type="text">
                 </div>
                 <div id="projectContent_3">
                     <p>리워드 선택</p>
@@ -80,6 +88,7 @@
                     </div>
                 </div>
             </div>
+            </form>
         </section>
 	</div>
 <%@ include file="/views/common/footer.jsp" %>

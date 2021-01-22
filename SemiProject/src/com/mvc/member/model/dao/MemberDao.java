@@ -369,4 +369,66 @@ public class MemberDao {
 //		pstmt = conn.prepareStatement("")
 		return 0;
 	}
+
+	// 01.22 승현 후원하기에 필요한 member정보를 가져오는 dao쪽 메소드
+	public Member findMemberForfunding(Connection conn, int userNo) {
+		Member member = null;
+		ResultSet rset = null;
+		PreparedStatement pstmt = null;
+	
+		try {
+		
+			pstmt = conn.prepareStatement("SELECT * FROM MEMBER WHERE USER_NO=?");
+			
+			pstmt.setInt(1, userNo);
+	
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				member = new Member(
+					rset.getInt("USER_NO"),
+	                rset.getString("USER_ID"),
+	                rset.getString("USER_PWD"),
+	                rset.getString("USER_NAME"),
+	                rset.getString("PHONE"),
+                    rset.getString("EMAIL"),
+                    rset.getString("ADDRESS"),
+                    rset.getDate("USER_ENROLL_DATE"),
+                    rset.getDate("USER_MODIFY_DATE"),
+                    rset.getString("USER_STATUS"),
+                    rset.getString("USER_ROLE"),
+                    rset.getInt("USER_COIN")
+                    );
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return member;
+	}
+	
+	// 1.22 승현 project funding 값을 업데이트 하는 dao
+	public int updateFunding(Connection conn, int userNo, int num1) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement("UPDATE MEMBER SET USER_COIN=? WHERE USER_NO=?");
+			
+			pstmt.setInt(1, num1);			
+			pstmt.setInt(2, userNo);			
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }

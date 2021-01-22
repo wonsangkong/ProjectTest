@@ -7,6 +7,7 @@ import com.mvc.common.util.PageInfo;
 import com.mvc.project.model.dao.ProjectDAO;
 import com.mvc.project.model.vo.CarryProject;
 import com.mvc.project.model.vo.ProjectReward;
+import com.mvc.project.model.vo.projectFunding;
 
 import static com.mvc.common.jdbc.JDBCTemplate.*;
 
@@ -89,6 +90,41 @@ public class ProjectService {
 		close(conn);
 		
 		return result;
+	}
+
+	public int saveFunding(projectFunding funding) {
+		int result = 0;
+		
+		Connection conn = getConnection();
+		
+		result = new ProjectDAO().insertFunding(conn, funding);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+		
+	}
+	
+	// 1.22 승현
+	public int updateFunding(int projectNo, int num2) {
+		Connection conn = getConnection();
+		int result = new ProjectDAO().updateFunding(conn, projectNo, num2);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return  result;
 	}
 
 }

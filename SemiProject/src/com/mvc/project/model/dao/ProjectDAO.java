@@ -10,6 +10,7 @@ import java.util.List;
 import com.mvc.common.util.PageInfo;
 import com.mvc.project.model.vo.CarryProject;
 import com.mvc.project.model.vo.ProjectReward;
+import com.mvc.project.model.vo.projectFunding;
 
 import static com.mvc.common.jdbc.JDBCTemplate.*;
 
@@ -22,7 +23,7 @@ public class ProjectDAO {
 		CarryProject project = null;
 		
 		String query =
-			  "SELECT P.PROJECT_NO, P.PROJECT_TITLE, M.USER_ID, P.PROJECT_COMPANY, P.TARGET_AMOUNT, P.REACH_AMOUNT, P.PROJECT_ENROLL_DATE, P.PROJECT_MODIFY_DATE, P.PROJECT_END_DATE, P.IMG_ORIGINAL_NAME, P.IMG_RENAMED_NAME, P.PROJECT_CONTENT, P.PROJECT_COUNT, P.PROJECT_LIKE\r\n"
+			  "SELECT P.PROJECT_NO, P.PROJECT_TITLE, M.USER_ID, P.PROJECT_COMPANY, P.TARGET_AMOUNT, P.REACH_AMOUNT, P.PROJECT_ENROLL_DATE, P.PROJECT_MODIFY_DATE, P.PROJECT_END_DATE, P.IMG_ORIGINAL_NAME, P.IMG_RENAMED_NAME, P.PROJECT_CONTENT, P.PROJECT_COUNT, P.PROJECT_LIKE, TRIM((REACH_AMOUNT/TARGET_AMOUNT)*100)\r\n"
 			  + "FROM CARRYFUNDING_PROJECT P\r\n"
 			  + "JOIN MEMBER M ON(P.CREATOR_NO = M.USER_NO)\r\n"
 			  + "WHERE P.PROJECT_STATUS = 'Y' AND P.PROJECT_CHECK = 'Y' AND P.PROJECT_NO = ?";
@@ -56,6 +57,7 @@ public class ProjectDAO {
 				project.setProjectContent(rs.getString("PROJECT_CONTENT"));
 				project.setProjectCount(rs.getInt("PROJECT_COUNT"));
 				project.setProjectLike(rs.getInt("PROJECT_LIKE"));
+				project.setAttainmentPercent(rs.getInt("TRIM((REACH_AMOUNT/TARGET_AMOUNT)*100)"));
 //				project.setCreateNo(rs.getInt("CREATOR_NO"));
 				
 			}
@@ -216,6 +218,49 @@ public class ProjectDAO {
 			pstmt.setInt(3, reward.getProNo());
 			
 			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int insertFunding(Connection conn, projectFunding funding) {
+		PreparedStatement pstmt = null;
+		int result = 0;	
+		
+		try {
+			pstmt = conn.prepareStatement("INSERT INTO FUNDING VALUES(SEQ_UNO.NEXTVAL,?,DEFAULT,?,?)");
+			pstmt.setInt(1, funding.getFundingPrice());
+			pstmt.setInt(2, funding.getFundingUser());
+			pstmt.setInt(3, funding.getFundingProject());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
+	// 1.22 승현
+	public int updateFunding(Connection conn, int projectNo, int num2) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement("UPDATE CARRYFUNDING_PROJECT SET REACH_AMOUNT=? WHERE PROJECT_NO=?");
+			
+			pstmt.setInt(1, num2);			
+			pstmt.setInt(2, projectNo);			
+			
+			result = pstmt.executeUpdate();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
