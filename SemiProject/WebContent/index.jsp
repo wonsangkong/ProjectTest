@@ -5,33 +5,19 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/style.css">
 <script src="<%=request.getContextPath() %>/js/jquery-3.5.1.js"></script>
          <section>
-
-            <div id="content_2">
-                <div id="protitle1">
-                    <hr id="hr1">
-                        <h3><a href="<%=request.getContextPath()%>/project/list">성공임박 프로젝트</a></h3>
-                    <hr id="hr2">
-                </div>
-                <form class="prodform">
-                    <div class="prod" id="prod1"><img src="resources/logo.PNG" alt=""></div>
-                    <p>프로젝트명</p>
-                    <p>달성률(%)</p>
-                </form>
-                <form class="prodform">
-                    <div class="prod" id="prod2"><img src="resources/logo.PNG" alt=""></div>
-                    <p>프로젝트명</p>
-                    <p>달성률(%)</p>
-                </form>
-                <form class="prodform">
-                    <div class="prod" id="prod3"><img src="resources/logo.PNG" alt=""></div>
-                    <p>프로젝트명</p>
-                    <p>달성률(%)</p>
-                </form>
-                <form class="prodform">
-                    <div class="prod" id="prod4"><img src="resources/logo.PNG" alt=""></div>
-                    <p>프로젝트명</p>
-                    <p>달성률(%)</p>
-                </form>
+         
+         <!-- ***** 1월 22일 원상 메인 화면 구성 변경 ***** -->
+         
+            <div>
+                <a href="<%=request.getContextPath()%>/project/list">
+                    <img src="<%=request.getContextPath() %>/img/main1.jpg" id="main-rolling" width="1000px" style="margin-top:30px">
+                </a>
+            </div>
+            
+            <div>
+                <a href="<%= request.getContextPath() %>/project/projectwriteagree">
+                    <img src="<%=request.getContextPath() %>/img/main2.jpg" id="main-rolling" width="1000px" style="margin-top:30px">
+                </a>
             </div>
 
             <div id="content_3">

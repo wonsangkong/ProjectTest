@@ -126,5 +126,69 @@ public class ProjectService {
 		
 		return  result;
 	}
+	
+	/** 1월 22일 원상 상품 삭제 및 Admin 관련 메소드 정리 (이하 전부) */
+	
+	public int deleteProject(String projectNo) {
+		
+			Connection conn = getConnection();
+			int result = new ProjectDAO().updateProjectStatus(conn, projectNo, "N");
+			
+			if(result > 0) {
+				commit(conn);
+			} else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+	}
+	
+	public int getAdminProjectCount() {
+		Connection conn = getConnection();
+
+		int result = new ProjectDAO().getAdminProjectCount(conn);
+
+		close(conn);
+
+		return result;
+	}
+	
+	public CarryProject getAdminProject(int projectNo) {
+//		int result = 0;
+		Connection conn = getConnection();
+		CarryProject project = new ProjectDAO().findAdminProjectByNo(conn, projectNo);
+		
+		close(conn);
+		
+		return project;
+	}
+	
+	public List<CarryProject> getAdminProjectList(PageInfo info) {
+		Connection conn = getConnection();
+		
+		List<CarryProject> list = new ProjectDAO().adminFindAll(conn, info);
+		
+		close(conn);
+		
+		return list;
+	}
+	
+	public int confirmProject(String projectNo) {
+		
+		Connection conn = getConnection();
+		int result = new ProjectDAO().updateProjectCheckStatus(conn, projectNo, "Y");
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
 
 }

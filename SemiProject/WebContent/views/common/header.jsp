@@ -66,7 +66,7 @@
 		                    <td>
 		                        <p><%= loginMember.getUserName() %> 님 반갑습니다! <br>
 		                        <%if(loginMember != null && loginMember.getUserRole().equals("ROLE_ADMIN")) {%>
-                                	<a>캐리펀딩 관리하기</a>
+                                	<a href="<%= request.getContextPath()%>/project/adminList" style="text-decoration: none; font-size: 12px"> ㅇ 프로젝트 관리 ㅇ </a>
                                 <%} else { %>
                                 	포인트 : <a><%= loginMember.getUserCoin() %>p</a>
                                 	<%-- 이슬 추가사항 <br>태그포함 인풋태그로 포인트충전하기버튼 추가 --%>

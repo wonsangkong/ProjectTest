@@ -44,11 +44,11 @@ public class UpdateFundServlet extends HttpServlet {
 		if(result1 > 0 && result2 > 0) {
 			msg = "펀딩이 완료되었습니다.";
 			
-			request.setAttribute("location", "/views/project/list");
+			request.setAttribute("location", "/");
 		} else {
 			msg = "펀딩이 실패했습니다.";
 			
-			request.setAttribute("location", "/views/project/list");
+			request.setAttribute("location", "/");
 		}
 		
 		request.setAttribute("msg", msg);
