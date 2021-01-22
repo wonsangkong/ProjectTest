@@ -100,7 +100,8 @@
                     <li><a href="<%= request.getContextPath() %>/project/projectwriteagree">프로젝트 신청하기</a></li>
                 </ul>
                 <ul id="navi_3">
-                    <li><a href="">커뮤니티</a></li>
+                <!-- 1/22 은주 커뮤니티 창 이동  -->
+                    <li><a href="<%= request.getContextPath() %>/board/list">커뮤니티</a></li>
                     
                     <!--************ 1/20 원상 마이페이지 경로 수정사항 ************-->
                                         

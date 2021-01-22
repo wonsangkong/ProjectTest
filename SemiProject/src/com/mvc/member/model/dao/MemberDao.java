@@ -431,4 +431,35 @@ public class MemberDao {
 		
 		return result;
 	}
+	
+	// 은주 1/22일 수정 다시 수정해야함.
+	public String idfind(Connection conn, String name, String email) {
+		String userId = null; //찾을 아이디
+		ResultSet rset = null;
+		PreparedStatement pstmt = null;
+		try {
+			
+			pstmt = conn.prepareStatement("SELECT USER_ID FROM MEMBER WHERE USER_NAME=? AND EMAIL=?");
+			
+			pstmt.setString(1, name);
+			pstmt.setString(2, email);
+			
+			System.out.println("userName : "+ name);
+			System.out.println("Email : " + email);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				System.out.println(rset.getString("USER_ID"));
+				userId=rset.getString("userId");
+			
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+			  return userId;
+	
+	}
 }

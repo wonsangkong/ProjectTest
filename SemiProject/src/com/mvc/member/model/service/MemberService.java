@@ -213,6 +213,13 @@ public class MemberService {
 		
 		return  result;
 	}
+	
+	//(은주) 1/22일 수정
+	public String idfind(String name, String email) {
+		
+		Connection conn = getConnection();
+		return dao.idfind(conn, name , email);		
+	}
 
 }
 

@@ -50,7 +50,8 @@
                                     required><br></label>
                             <p></p><br>
                         </fieldset>
-                        <input type="submit" value="취소" id="submitbtn" >
+                     <!--(은주) 1/22일 취소 밑에부분도 같이 수정해주세요. -->
+                        <input type="button" value="취소" id="submitbtn" onClick="history.back()" >
                         <input type="submit" value="확인" id="submitbtn" >
 
                     </table>
@@ -86,7 +87,8 @@
                                     required><br></label>
                             <p></p><br>
                         </fieldset>
-                        <input type="submit" value="취소" id="submitbtn" onclick="close();";>
+                        <!--(은주) 1/22일 취소 수정. -->
+                         <input type="button" value="취소" id="submitbtn" onClick="history.back()" >
                         <input type="submit" value="확인" id="submitbtn">
 
                     </table>
