@@ -362,12 +362,25 @@ public class MemberDao {
 	}
 	
 	// 2021/01/21 이슬 user_coin에 포인트 업데이트할 updatePoint 개발 중 
-	public int updatePoint(Connection conn, int payerNo, int userPoint) {
+	// 2021/01/22 이슬 updatePoint 매개변수 변경 try catch문 작성했으나 넘어가질않음..
+	public int updatePoint(Connection conn, int payerNo, int userNo) {
 		int result = 0;
 		PreparedStatement pstmt = null;
+		String query = "";
 		
-//		pstmt = conn.prepareStatement("")
-		return 0;
+		try {
+			query = "UPDATE MEMBER SET USER_COIN = (SELECT SUM(PAYMENT_AMOUNT) FROM POINT_CHARGING WHERE PAYER_NO = ?) WHERE USER_NO = ?";
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, payerNo);
+			pstmt.setInt(2, userNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	// 01.22 승현 후원하기에 필요한 member정보를 가져오는 dao쪽 메소드

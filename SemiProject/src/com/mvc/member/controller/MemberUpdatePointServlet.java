@@ -27,14 +27,19 @@ public class MemberUpdatePointServlet extends HttpServlet {
 		String msg = "";
 		String location="/";
 		String script = null;
+		// 2021/01/22 포인트 update 서블릿 개발 ..길을 잃음..
+//		Payer payer = new Payer();
 		int payerNo = Integer.parseInt(request.getParameter("payerNumber"));
 		int userPoint = Integer.parseInt(request.getParameter("userCoin"));
+//		HttpSession session = request.getSession();
+//		Member loginMember = (Member)session.getAttribute("loginMember");
+//		session.setAttribute("payer", payer);
 		
 		int result = new MemberService().updatePoint(payerNo, userPoint);
 		
 		if(result > 0) {
 			msg = "포인트가 정상적으로 충전되었습니다.";
-			script = "self.close()";
+			location = "/";
 		} else {
 			msg = "포인트 충전이 실패하였습니다. 다시 시도해주세요.";
 			location = "/member/point";
@@ -42,7 +47,8 @@ public class MemberUpdatePointServlet extends HttpServlet {
 		
 		request.setAttribute("msg", msg);
 		request.setAttribute("script", script);
-		request.setAttribute("location", location);		
+		request.setAttribute("location", location);
+//		request.setAttribute("payer", payer);
 		request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 	}
 }

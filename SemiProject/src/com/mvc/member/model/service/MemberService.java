@@ -172,9 +172,10 @@ public class MemberService {
 	}
 	
 	// 2021/01/21 이슬 user_coin에 포인트 업데이트할 updatePoint 개발 중 
-	public int updatePoint(int payerNo, int userPoint) {
+	// 2021/01/22 이슬 updatePoint 매개변수 변경 했으나 안됨..
+	public int updatePoint(int payerNo, int userNo) {
 		Connection conn = getConnection();
-		int result = dao.updatePoint(conn, payerNo, userPoint);
+		int result = dao.updatePoint(conn, payerNo, userNo);
 		
 		if(result > 0) {
 			commit(conn);

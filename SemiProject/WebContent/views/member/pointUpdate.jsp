@@ -16,8 +16,8 @@
                         <td><input type="text" value="<%= loginMember.getUserCoin() %>" readonly> point</td>
                     </tr>
                     <tr>
-                        <td>합계</td>
-                        <td><input type="text" value="" readonly> point</td>
+       					<td><input type="hidden" name= "userNo" value="<%= loginMember.getUserNo() %>" ></td>
+       					<td><input type="hidden" name= "payerNo" value="<%= payer.getPayerNo() %>" ></td>
                     </tr>
                 </table>
                 <input type="submit" name="pointUpdateButton" id="pointUpdateButton" value="확인">

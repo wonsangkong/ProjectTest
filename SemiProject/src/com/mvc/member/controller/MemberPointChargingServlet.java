@@ -33,8 +33,10 @@ public class MemberPointChargingServlet extends HttpServlet {
 		Payer payer = new Payer();
 		int paymentAmount = Integer.parseInt(request.getParameter("paymentAmount"));
 		int accountNumber = Integer.parseInt(request.getParameter("accountNumber"));
-		HttpSession session = request.getSession(false);
-		Member loginMember = session != null ? (Member)session.getAttribute("loginMember") : null;
+		// 2021/01/22 이슬 session 부분 조금 수정/ payer session 추가
+		HttpSession session = request.getSession();
+		Member loginMember = (Member)session.getAttribute("loginMember");
+        session.setAttribute("payer", payer);
 		
 		payer.setPayerNo(loginMember.getUserNo());
 		payer.setPaymentAmount(paymentAmount);
@@ -48,7 +50,8 @@ public class MemberPointChargingServlet extends HttpServlet {
 		// 2021/01/21 이슬 msg 내용 변경 / 포인트충전에 성공했습니다-> 다음단계로 넘어갑니다. / 포인트충전에 실패하였습니다 -> 다시 시도해 주세요.
 		if(result > 0) {
 			msg ="다음단계로 넘어갑니다.";
-			location = "/";
+			// 2021/01/22 이슬 location 경로 변경
+			location = "/member/pointUpdate";
 			
 		} else {
 			msg ="다시 시도해 주세요.";
@@ -57,7 +60,7 @@ public class MemberPointChargingServlet extends HttpServlet {
 		
 		request.setAttribute("msg", msg);
 		request.setAttribute("location", location);
-		
+//		request.setAttribute("paymentAmount", paymentAmount);
 		request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 	}
 }

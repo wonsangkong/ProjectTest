@@ -70,7 +70,7 @@
                                 <%} else { %>
                                 	포인트 : <a><%= loginMember.getUserCoin() %>p</a>
                                 	<%-- 이슬 추가사항 <br>태그포함 인풋태그로 포인트충전하기버튼 추가 --%>
-                                	<br><input type="button" id="addPoint" value="포인트충전하기" onclick="location.href ='<%= request.getContextPath()%>/member/point';">
+                                	<br><a href="<%= request.getContextPath() %>/member/point?userNo=<%= loginMember.getUserNo() %>">포인트충전하기</a>
                                 <%} %></p>
 		                    </td>
 		                </tr>
