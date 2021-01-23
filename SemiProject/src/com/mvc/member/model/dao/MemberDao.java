@@ -260,7 +260,7 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		
 		try {
-			query = "INSERT INTO POINT_CHARGING VALUES(SEQ_PAYMENT_NO.NEXTVAL, ?, ?, ?, SYSDATE, NULL, 'Y', ?)";
+			query = "INSERT INTO POINT_CHARGING VALUES(SEQ_PAYMENT_NO.NEXTVAL, ?, ?, ?, SYSDATE, SYSDATE, 'Y', ?)";
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setInt(1, payer.getPaymentAmount());
@@ -306,16 +306,18 @@ public class MemberDao {
 	
 	// 2021/01/21 이슬 user_coin에 포인트 업데이트할 updatePoint 개발 중 
 	// 2021/01/22 이슬 updatePoint 매개변수 변경 try catch문 작성했으나 넘어가질않음..
-	public int updatePoint(Connection conn, int payerNo, int userNo) {
+	// 01.23 승현 일단 구현이 되도록 만들기는 하겠는데... 아마 이렇게 하면 안될거에요~ 다음에 공부하고 수정해보기로 해요.
+	public int updatePoint(Connection conn, int userNo, int PaymentAmount) {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		String query = "";
 		
 		try {
-			query = "UPDATE MEMBER SET USER_COIN = (SELECT SUM(PAYMENT_AMOUNT) FROM POINT_CHARGING WHERE PAYER_NO = ?) WHERE USER_NO = ?";
+//			query = "UPDATE MEMBER SET USER_COIN = (SELECT SUM(PAYMENT_AMOUNT) FROM POINT_CHARGING WHERE PAYER_NO = ?) WHERE USER_NO = ?";
+			query = "UPDATE MEMBER SET USER_COIN=(USER_COIN+?) WHERE USER_NO=?";
 			pstmt = conn.prepareStatement(query);
 			
-			pstmt.setInt(1, payerNo);
+			pstmt.setInt(1, PaymentAmount);
 			pstmt.setInt(2, userNo);
 			
 			result = pstmt.executeUpdate();

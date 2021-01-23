@@ -27,22 +27,23 @@ public class MemberPointChargingServlet extends HttpServlet {
     	request.getRequestDispatcher("/views/member/point.jsp").forward(request, response);
 	}
     
+    // 01.23 승현 userNo를 바로 불러와서 적용하기, Member를 따로 불러오니까 db쪽 에러가 나는것 같아서 일단 이렇게 해볼께요~
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String msg = "";
 		String location = "";
 		Payer payer = new Payer();
+		int userNo = Integer.parseInt(request.getParameter("userNo"));
 		int paymentAmount = Integer.parseInt(request.getParameter("paymentAmount"));
 		int accountNumber = Integer.parseInt(request.getParameter("accountNumber"));
+		String bankName = request.getParameter("bankName");
 		// 2021/01/22 이슬 session 부분 조금 수정/ payer session 추가
-		HttpSession session = request.getSession();
-		Member loginMember = (Member)session.getAttribute("loginMember");
-        session.setAttribute("payer", payer);
 		
-		payer.setPayerNo(loginMember.getUserNo());
+//		Member loginMember = (Member)session.getAttribute("loginMember");
+        
+		payer.setPayerNo(userNo);
 		payer.setPaymentAmount(paymentAmount);
-		payer.setBankName(request.getParameter("bankName"));
+		payer.setBankName(bankName);
 		payer.setAccountNumber(accountNumber);
-		
 		
 		int result = new MemberService().insertPointInfo(payer);
 		
@@ -51,8 +52,12 @@ public class MemberPointChargingServlet extends HttpServlet {
 		if(result > 0) {
 			msg ="다음단계로 넘어갑니다.";
 			// 2021/01/22 이슬 location 경로 변경
-			location = "/member/pointUpdate";
 			
+			// 1.23 승현 payer에 해당하는 session추가
+			HttpSession session = request.getSession();
+			session.setAttribute("payer", payer);
+			
+			location = "/member/pointUpdate";
 		} else {
 			msg ="다시 시도해 주세요.";
 			location ="/member/point";	

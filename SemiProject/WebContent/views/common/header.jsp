@@ -6,7 +6,8 @@
 	Member loginMember = (Member)session.getAttribute("loginMember");
 	
 	// 2021/01/21 이슬 pointUpdate.jsp에서 사용할 payer객체 가져왔는데.. 되려나..?
-	Payer payer = (Payer)session.getAttribute("payer");
+	// 01.23 승현 여기서 넣지 말고 바로 pointUpdate에서 소환해야할듯? 계속 충전하려면 pointUpdate.jsp에 추가하는게 맞는듯...		
+	// Payer payer = (Payer)session.getAttribute("payer");
 %>
 <!DOCTYPE html>
 <html>

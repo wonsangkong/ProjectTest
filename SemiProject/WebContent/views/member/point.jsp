@@ -11,6 +11,8 @@
                         저희 carry funding에서는 포인트 충전 후 현금처럼 사용이 가능합니다. <br>
                         원하시는 충전 금액을 선택해 주세요!
                     </p>
+                    <!-- 1.23 승현 userNo 추가 -->
+                    <input type="hidden" name="userNo" id="pOpenName" value="<%= loginMember.getUserNo() %>">
                    
                     <label for="point0"><input type="radio" id="point0" name="paymentAmount" value="10000"> 10,000point</label>
                     <label for="point1"><input type="radio" id="point1" name="paymentAmount" value="30000"> 30,000point</label>
