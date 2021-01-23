@@ -33,41 +33,13 @@ public class MemberService {
 	}
 	
 	//(은주) 1/20일 변경.
-	public int Pwd(String id) {
-		Connection conn = getConnection();
-		int result = dao.Pwd(conn, id);
-		
-		if (result > 0) {
-			commit(conn);
-		} else {
-			rollback(conn);
-		}
-				
-		close(conn);
-		
-		return result;
-	}
+	//(은주) 1/20일 변경.  <------ 1/23일  주석 부분 지워주세요~ (중복코드입니다.)
 	
 	//(은주) 1/21일 변경.
 	public Member pwd(String Id, String pon) {
 		Connection conn = getConnection();
 		return dao.pwd(conn, Id , pon);
 	}
-	
-//	public int changePwd(String id, String pwd) {
-//		Connection conn = getConnection();
-//		int change = dao.changePwd(conn, id, pwd);
-//		
-//		if (change > 0) {
-//			commit(conn);
-//		} else {
-//			rollback(conn);
-//		}
-//				
-//		close(conn);
-//		
-//		return change;
-//	}
 	
 	/**
 	validate 메소드 추가.(아이디 중복 관련 메소드, Dao 클래스와 연결)
@@ -160,16 +132,7 @@ public class MemberService {
 		return result;
 	}
 	
-	//(은주) 1/21일 id찾기 
-	public boolean idfind(String userName, String phone, String email) {
-		Connection conn = getConnection();
-		
-		Member member = dao.idfind(conn, userName, phone, email);
-		
-		close(conn);
-		
-		return member != null;
-	}
+	//(은주) 1/21일 id찾기 <------ 1/23일  주석 부분 지워주세요~ (중복코드입니다.)
 	
 	// 2021/01/21 이슬 user_coin에 포인트 업데이트할 updatePoint 개발 중 
 	// 2021/01/22 이슬 updatePoint 매개변수 변경 했으나 안됨..
@@ -216,10 +179,10 @@ public class MemberService {
 	}
 	
 	//(은주) 1/22일 수정
-	public String idfind(String name, String email) {
-		
+	// 1/23일 id값 불러오기 완료!
+	public Member idfind(String name, String email) {
 		Connection conn = getConnection();
-		return dao.idfind(conn, name , email);		
+		return dao.idfind(conn, name , email);
 	}
 
 }

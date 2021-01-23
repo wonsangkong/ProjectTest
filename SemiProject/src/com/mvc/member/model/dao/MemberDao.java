@@ -107,24 +107,8 @@ public class MemberDao {
       return result;
    }
    
-   // (은주) 1/20일 변경
-	public int Pwd(Connection conn, String id) {
-		int result = 0;
-		PreparedStatement pstmt = null;
-		
-		try {
-			pstmt = conn.prepareStatement("SELECT * FROM MEMBER WHERE USER_ID=?");
-			
-			pstmt.setString(1, id);
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-				
-		return result;
-	}
+   // (은주) 1/20일 변경 <------ 1/23일  주석 부분 지워주세요~ (중복코드입니다.)
+
 	
 	   // (은주) 1/21일 pwd부분/주석20일에 해둔거 다 지우시고 이걸로 변경해주세요.
 		public Member pwd(Connection conn, String id, String pon) {
@@ -318,48 +302,7 @@ public class MemberDao {
 		return result;
 	}
 	
-	//(은주) 1/21일 id찾기 작업중
-	public Member idfind(Connection conn, String userName, String phone, String email) {
-		Member member = null;
-		ResultSet rset = null;
-		PreparedStatement pstmt = null;
-		
-		try {
-			
-			pstmt = conn.prepareStatement("SELECT * FROM MEMBER WHERE USER_NAME=? AND PHONE=? AND EMAIL=?");
-			
-			pstmt.setString(1, userName);
-			pstmt.setString(2, phone);
-			pstmt.setString(3, email);
-			
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				System.out.println(rset.getString("USER_ID") + ", " + rset.getString("USER_PWD"));
-				member = new Member(
-						rset.getInt("USER_NO"),
-		                rset.getString("USER_ID"),
-		                rset.getString("USER_PWD"),
-		                rset.getString("USER_NAME"),
-		                rset.getString("PHONE"),
-	                    rset.getString("EMAIL"),
-	                    rset.getString("ADDRESS"),
-	                    rset.getDate("USER_ENROLL_DATE"),
-	                    rset.getDate("USER_MODIFY_DATE"),
-	                    rset.getString("USER_STATUS"),
-	                    rset.getString("USER_ROLE"),
-	                    rset.getInt("USER_COIN")
-	                    );
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return member;
-	}
+	//(은주) 1/21일 id찾기 작업중 <------ 1/23일  주석 부분 지워주세요~ (중복코드입니다.)
 	
 	// 2021/01/21 이슬 user_coin에 포인트 업데이트할 updatePoint 개발 중 
 	// 2021/01/22 이슬 updatePoint 매개변수 변경 try catch문 작성했으나 넘어가질않음..
@@ -446,25 +389,36 @@ public class MemberDao {
 	}
 	
 	// 은주 1/22일 수정 다시 수정해야함.
-	public String idfind(Connection conn, String name, String email) {
-		String userId = null; //찾을 아이디
+	// 은주 1/23일 id찾기 완료!
+	public Member idfind(Connection conn, String name, String email) {
+		Member member = null;
 		ResultSet rset = null;
 		PreparedStatement pstmt = null;
+	
 		try {
+		
+			pstmt = conn.prepareStatement("SELECT * FROM MEMBER WHERE USER_NAME=? AND EMAIL=?");
 			
-			pstmt = conn.prepareStatement("SELECT USER_ID FROM MEMBER WHERE USER_NAME=? AND EMAIL=?");
-			
-			pstmt.setString(1, name);
-			pstmt.setString(2, email);
-			
-			System.out.println("userName : "+ name);
-			System.out.println("Email : " + email);
+			pstmt.setString(1, name );
+			pstmt.setString(2, email );
+	
 			rset = pstmt.executeQuery();
 			
-			while(rset.next()) {
-				System.out.println(rset.getString("USER_ID"));
-				userId=rset.getString("userId");
-			
+			if(rset.next()) {
+				member = new Member(
+						rset.getInt("USER_NO"),
+		                rset.getString("USER_ID"),
+		                rset.getString("USER_PWD"),
+		                rset.getString("USER_NAME"),
+		                rset.getString("PHONE"),
+	                    rset.getString("EMAIL"),
+	                    rset.getString("ADDRESS"),
+	                    rset.getDate("USER_ENROLL_DATE"),
+	                    rset.getDate("USER_MODIFY_DATE"),
+	                    rset.getString("USER_STATUS"),
+	                    rset.getString("USER_ROLE"),
+	                    rset.getInt("USER_COIN")
+	                    );
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -472,7 +426,7 @@ public class MemberDao {
 			close(rset);
 			close(pstmt);
 		}
-			  return userId;
-	
+		
+		return member;
 	}
 }
