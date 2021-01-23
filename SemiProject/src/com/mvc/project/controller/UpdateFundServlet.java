@@ -29,17 +29,18 @@ public class UpdateFundServlet extends HttpServlet {
 		int projectNo = Integer.parseInt(request.getParameter("projectNo"));
 		int fundingPrice = Integer.parseInt(request.getParameter("fundingPrice"));
 		
-		Member member = new MemberService().findMemberForfunding(userNo);
-		CarryProject project = new ProjectService().getProject(projectNo);
+		// 1.23 승현 복잡하게 구성된 서블릿 기능 제거 이 때문에 list랑 db가 꼬이는것 같아서 일단 주석처리
+//		Member member = new MemberService().findMemberForfunding(userNo);
+//		CarryProject project = new ProjectService().getProject(projectNo);
 		
-		int orimemberPrice = member.getUserCoin();
-		int oriprojectPrice = project.getReachAmount();
+//		int orimemberPrice = member.getUserCoin();
+//		int oriprojectPrice = project.getReachAmount();
 		
-		int num1 = orimemberPrice - fundingPrice;
-		int num2 = oriprojectPrice + fundingPrice;
+//		int num1 = orimemberPrice - fundingPrice;
+//		int num2 = oriprojectPrice + fundingPrice;
 		
-		int result1 = new MemberService().updateFunding(member.getUserNo(), num1);
-		int result2 = new ProjectService().updateFunding(project.getProjectNo(), num2);
+		int result1 = new MemberService().updateFunding(userNo, fundingPrice);
+		int result2 = new ProjectService().updateFunding(projectNo, fundingPrice);
 		
 		if(result1 > 0 && result2 > 0) {
 			msg = "펀딩이 완료되었습니다.";

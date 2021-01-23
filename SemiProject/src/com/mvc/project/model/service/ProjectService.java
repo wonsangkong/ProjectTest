@@ -112,9 +112,9 @@ public class ProjectService {
 	}
 	
 	// 1.22 승현
-	public int updateFunding(int projectNo, int num2) {
+	public int updateFunding(int projectNo, int fundingPrice) {
 		Connection conn = getConnection();
-		int result = new ProjectDAO().updateFunding(conn, projectNo, num2);
+		int result = new ProjectDAO().updateFunding(conn, projectNo, fundingPrice);
 		
 		if(result > 0) {
 			commit(conn);

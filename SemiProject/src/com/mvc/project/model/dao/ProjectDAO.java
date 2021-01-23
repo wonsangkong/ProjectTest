@@ -249,14 +249,14 @@ public class ProjectDAO {
 	}
 	
 	// 1.22 승현
-	public int updateFunding(Connection conn, int projectNo, int num2) {
+	public int updateFunding(Connection conn, int projectNo, int fundingPrice) {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
 		try {
-			pstmt = conn.prepareStatement("UPDATE CARRYFUNDING_PROJECT SET REACH_AMOUNT=? WHERE PROJECT_NO=?");
+			pstmt = conn.prepareStatement("UPDATE CARRYFUNDING_PROJECT SET REACH_AMOUNT=(REACH_AMOUNT+?) WHERE PROJECT_NO=?");
 			
-			pstmt.setInt(1, num2);			
+			pstmt.setInt(1, fundingPrice);			
 			pstmt.setInt(2, projectNo);			
 			
 			result = pstmt.executeUpdate();
@@ -343,22 +343,14 @@ public class ProjectDAO {
 				project.setProjectCompany(rs.getString("PROJECT_COMPANY"));
 				project.setTargetAmount(rs.getInt("TARGET_AMOUNT"));
 				project.setReachAmount(rs.getInt("REACH_AMOUNT"));
-				
-				// 1.21 승현 date -> string으로 변환
-//				project.setProjectEnrolldate(rs.getDate("PROJECT_ENROLL_DATE"));
-//				project.setProjectModifydate(rs.getDate("PROJECT_MODIFY_DATE"));
-//				project.setProjectEnddate(rs.getDate("PROJECT_END_DATE"));
-				
 				project.setProjectEnrolldate(rs.getString("PROJECT_ENROLL_DATE"));
 				project.setProjectModifydate(rs.getString("PROJECT_MODIFY_DATE"));
 				project.setProjectEnddate(rs.getString("PROJECT_END_DATE"));
-				
 				project.setImgOriginalName(rs.getString("IMG_ORIGINAL_NAME"));
 				project.setImgRenamedName(rs.getString("IMG_RENAMED_NAME"));
 				project.setProjectContent(rs.getString("PROJECT_CONTENT"));
 				project.setProjectCount(rs.getInt("PROJECT_COUNT"));
 				project.setProjectLike(rs.getInt("PROJECT_LIKE"));
-//				project.setCreateNo(rs.getInt("CREATOR_NO"));
 				
 			}
 			
@@ -380,13 +372,15 @@ public List<CarryProject> adminFindAll(Connection conn, PageInfo info) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
+		// 1.23 승현 원상님 sql문에 project_check가 N 이라고 해야 N만 표시가 되어요~~
+		
 		String query = "SELECT *\r\n"
 				+ "FROM (\r\n"
 				+ "    SELECT ROWNUM AS RNUM, PROJECT_NO, PROJECT_TITLE, USER_ID, PROJECT_COMPANY, TARGET_AMOUNT, REACH_AMOUNT, TRIM((REACH_AMOUNT/TARGET_AMOUNT)*100), PROJECT_ENROLL_DATE, PROJECT_MODIFY_DATE, PROJECT_END_DATE, IMG_ORIGINAL_NAME, IMG_RENAMED_NAME, PROJECT_CONTENT, PROJECT_COUNT, PROJECT_LIKE\r\n"
 				+ "    FROM (SELECT  P.PROJECT_NO, P.PROJECT_TITLE, M.USER_ID, P.PROJECT_COMPANY, P.TARGET_AMOUNT, P.REACH_AMOUNT, TRIM((P.REACH_AMOUNT/P.TARGET_AMOUNT)*100), P.PROJECT_ENROLL_DATE, P.PROJECT_MODIFY_DATE, P.PROJECT_END_DATE, P.IMG_ORIGINAL_NAME, P.IMG_RENAMED_NAME, P.PROJECT_CONTENT, P.PROJECT_COUNT, P.PROJECT_LIKE\r\n"
 				+ "        FROM CARRYFUNDING_PROJECT P\r\n"
 				+ "        JOIN MEMBER M ON(P.CREATOR_NO = M.USER_NO)\r\n"
-				+ "        WHERE P.PROJECT_STATUS = 'Y' ORDER BY TRIM((P.REACH_AMOUNT/P.TARGET_AMOUNT)*100) DESC\r\n"
+				+ "        WHERE P.PROJECT_STATUS = 'Y' AND P.PROJECT_CHECK = 'N' ORDER BY TRIM((P.REACH_AMOUNT/P.TARGET_AMOUNT)*100) DESC\r\n"
 				+ "        )\r\n"
 				+ "   ) WHERE RNUM BETWEEN ? AND ?";
 		
@@ -409,22 +403,14 @@ public List<CarryProject> adminFindAll(Connection conn, PageInfo info) {
 				project.setTargetAmount(rs.getInt("TARGET_AMOUNT"));
 				project.setReachAmount(rs.getInt("REACH_AMOUNT"));
 				project.setAttainmentPercent(rs.getInt("TRIM((REACH_AMOUNT/TARGET_AMOUNT)*100)"));
-				
-				// 1.21 승현 date -> string으로 변환
-//				project.setProjectEnrolldate(rs.getDate("PROJECT_ENROLL_DATE"));
-//				project.setProjectModifydate(rs.getDate("PROJECT_MODIFY_DATE"));
-//				project.setProjectEnddate(rs.getDate("PROJECT_END_DATE"));
-				
 				project.setProjectEnrolldate(rs.getString("PROJECT_ENROLL_DATE"));
 				project.setProjectModifydate(rs.getString("PROJECT_MODIFY_DATE"));
 				project.setProjectEnddate(rs.getString("PROJECT_END_DATE"));
-				
 				project.setImgOriginalName(rs.getString("IMG_ORIGINAL_NAME"));
 				project.setImgRenamedName(rs.getString("IMG_RENAMED_NAME"));
 				project.setProjectContent(rs.getString("PROJECT_CONTENT"));
 				project.setProjectCount(rs.getInt("PROJECT_COUNT"));
 				project.setProjectLike(rs.getInt("PROJECT_LIKE"));
-//				project.setCreateNo(rs.getInt("CREATOR_NO"));
 				
 				list.add(project);
 			}

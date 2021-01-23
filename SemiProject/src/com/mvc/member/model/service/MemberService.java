@@ -200,9 +200,9 @@ public class MemberService {
 	}
 	
 	// 1.22 승현 project funding 값을 업데이트 하는 서비스
-	public int updateFunding(int userNo, int num1) {
+	public int updateFunding(int userNo, int fundingPrice) {
 		Connection conn = getConnection();
-		int result = dao.updateFunding(conn, userNo, num1);
+		int result = dao.updateFunding(conn, userNo, fundingPrice);
 		
 		if(result > 0) {
 			commit(conn);

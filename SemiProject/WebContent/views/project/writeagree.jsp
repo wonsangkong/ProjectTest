@@ -14,7 +14,8 @@
 	<form id="writeagreefrm" action="<%= request.getContextPath() %>/project/projectwriteagree" method="post">
 		<div id="full1">
 	        <div>
-	            <img src="<%= request.getContextPath() %>/resources/BCP1.PNG" id="BCP1" width="950px">
+	        	<!-- 1.23 승현 이미지 깨지는 부분 수정 -->
+	            <img src="<%=request.getContextPath() %>/resources/uploadSystem.png" id="BCP1" width="950px">
 	        </div>
 	        <div id="msg1">
 	            <h2>프로젝트를 올리기 전에 확인해 주세요.</h2>

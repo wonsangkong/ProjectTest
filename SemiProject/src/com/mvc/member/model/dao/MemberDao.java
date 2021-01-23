@@ -424,14 +424,14 @@ public class MemberDao {
 	}
 	
 	// 1.22 승현 project funding 값을 업데이트 하는 dao
-	public int updateFunding(Connection conn, int userNo, int num1) {
+	public int updateFunding(Connection conn, int userNo, int fundingPrice) {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
 		try {
-			pstmt = conn.prepareStatement("UPDATE MEMBER SET USER_COIN=? WHERE USER_NO=?");
+			pstmt = conn.prepareStatement("UPDATE MEMBER SET USER_COIN=(USER_COIN-?) WHERE USER_NO=?");
 			
-			pstmt.setInt(1, num1);			
+			pstmt.setInt(1, fundingPrice);			
 			pstmt.setInt(2, userNo);			
 			
 			result = pstmt.executeUpdate();
