@@ -1,4 +1,6 @@
 <!-- 1월 21일 원상 프로젝트 상세페이지 관련 JSP 추가 -->
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.mvc.member.model.vo.Member"%>
 <%@page import="com.mvc.project.model.vo.CarryProject"%>
 <%@page import="java.util.ArrayList"%>
@@ -7,6 +9,12 @@
     pageEncoding="UTF-8"%>
 <%
 	CarryProject project = (CarryProject)request.getAttribute("project");
+
+// 1.24 승현 마감날짜 표현 형태 변환
+	SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss"); 
+	Date date = dt.parse(project.getProjectEnddate()); 
+	String newstring = new SimpleDateFormat("yyyy-MM-dd").format(date);
+
 %>
 <%@ include file="/views/common/header.jsp" %>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/view.css">
@@ -29,7 +37,7 @@
                                 <img src="<%= request.getContextPath() %>/upload/proFile/<%= project.getImgRenamedName() %>">
                             </td>
                             <td>
-                                <h3><%= project.getProjectEnddate() %> 마감예정</h3>
+                                <h3><%= newstring %> 마감예정</h3>
                                 <p>달성률 : <%= project.getAttainmentPercent() %> %</p>
                                 <p>모인 금액 : <%= project.getReachAmount() %> 원</p>
                                 <p>목표 금액 : <%= project.getTargetAmount() %> 원</p>

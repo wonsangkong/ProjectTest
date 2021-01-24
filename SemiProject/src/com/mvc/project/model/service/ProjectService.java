@@ -15,7 +15,6 @@ import static com.mvc.common.jdbc.JDBCTemplate.*;
 public class ProjectService {
 
 	public CarryProject getProject(int projectNo) {
-//		int result = 0;
 		Connection conn = getConnection();
 		CarryProject project = new ProjectDAO().findProjectByNo(conn, projectNo);
 		
@@ -156,7 +155,6 @@ public class ProjectService {
 	}
 	
 	public CarryProject getAdminProject(int projectNo) {
-//		int result = 0;
 		Connection conn = getConnection();
 		CarryProject project = new ProjectDAO().findAdminProjectByNo(conn, projectNo);
 		

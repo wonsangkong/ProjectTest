@@ -45,8 +45,8 @@
                     <tr>
                         <th></th>
                         <td>
-                            <input type="test" name="userNo" id="openBasicAddress" value="<%= funding.getFundingUser() %>"><br>
-                            <input type="test" name="projectNo" id="openBasicAddress" value="<%= funding.getFundingProject()%>"><br>
+                            <input type="hidden" name="userNo" id="openBasicAddress" value="<%= funding.getFundingUser() %>"><br>
+                            <input type="hidden" name="projectNo" id="openBasicAddress" value="<%= funding.getFundingProject()%>"><br>
                         </td>
                     </tr>
  					

@@ -20,7 +20,7 @@
                 </a>
             </div>
 
-            <div id="content_3">
+<!--             <div id="content_3">
                 <div id="protitle2">
                     <hr id="hr3">
                         <h3>인기 프로젝트</h3>
@@ -46,7 +46,7 @@
                     <p>프로젝트명</p>
                     <p>달성률(%)</p>
                 </form>
-            </div>
+            </div> -->
         
         </section>
 

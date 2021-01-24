@@ -1,11 +1,11 @@
--- SYSTEM °èÁ¤¿¡¼­ ½ÇÇàÇØ¼­ »õ·Î¿î °èÁ¤ »ý¼º
+-- SYSTEM ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 -- CREATE USER FD IDENTIFIED BY FD;
--- »õ·Î¿î °èÁ¤ Á¢¼Ó
+-- ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 -- GRANT RESOURCE, CONNECT TO FD;
 
 
 ----------------------------------------------------------
---------------------- USER °ü·Ã Å×ÀÌºí ---------------------
+--------------------- USER ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ---------------------
 ----------------------------------------------------------
 
 CREATE TABLE MEMBER (
@@ -24,62 +24,62 @@ CREATE TABLE MEMBER (
 );
 
 
-COMMENT ON COLUMN MEMBER.USER_NO IS 'È¸¿ø¹øÈ£';
-COMMENT ON COLUMN MEMBER.USER_ID IS 'È¸¿øID';
-COMMENT ON COLUMN MEMBER.USER_PWD IS 'È¸¿øPWD';
-COMMENT ON COLUMN MEMBER.USER_NAME IS 'È¸¿ø¸í';
-COMMENT ON COLUMN MEMBER.PHONE IS 'ÀüÈ­¹øÈ£';
-COMMENT ON COLUMN MEMBER.EMAIL IS 'ÀÌ¸ÞÀÏ';
-COMMENT ON COLUMN MEMBER.ADDRESS IS 'ÁÖ¼Ò';
-COMMENT ON COLUMN MEMBER.USER_ENROLL_DATE IS 'È¸¿ø°¡ÀÔÀÏ';
-COMMENT ON COLUMN MEMBER.USER_MODIFY_DATE IS 'Á¤º¸¼öÁ¤ÀÏ';
-COMMENT ON COLUMN MEMBER.USER_STATUS IS 'È¸¿ø»óÅÂ(Y/N)';
-COMMENT ON COLUMN MEMBER.USER_ROLE IS 'È¸¿øÅ¸ÀÔ';
-COMMENT ON COLUMN MEMBER.USER_COIN IS 'Ä³¸®¸Ó´Ï';
+COMMENT ON COLUMN MEMBER.USER_NO IS 'È¸ï¿½ï¿½ï¿½ï¿½È£';
+COMMENT ON COLUMN MEMBER.USER_ID IS 'È¸ï¿½ï¿½ID';
+COMMENT ON COLUMN MEMBER.USER_PWD IS 'È¸ï¿½ï¿½PWD';
+COMMENT ON COLUMN MEMBER.USER_NAME IS 'È¸ï¿½ï¿½ï¿½ï¿½';
+COMMENT ON COLUMN MEMBER.PHONE IS 'ï¿½ï¿½È­ï¿½ï¿½È£';
+COMMENT ON COLUMN MEMBER.EMAIL IS 'ï¿½Ì¸ï¿½ï¿½ï¿½';
+COMMENT ON COLUMN MEMBER.ADDRESS IS 'ï¿½Ö¼ï¿½';
+COMMENT ON COLUMN MEMBER.USER_ENROLL_DATE IS 'È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
+COMMENT ON COLUMN MEMBER.USER_MODIFY_DATE IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
+COMMENT ON COLUMN MEMBER.USER_STATUS IS 'È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Y/N)';
+COMMENT ON COLUMN MEMBER.USER_ROLE IS 'È¸ï¿½ï¿½Å¸ï¿½ï¿½';
+COMMENT ON COLUMN MEMBER.USER_COIN IS 'Ä³ï¿½ï¿½ï¿½Ó´ï¿½';
 
 CREATE SEQUENCE SEQ_UNO;
 
 INSERT INTO MEMBER VALUES(
-    SEQ_UNO.NEXTVAL,'admin', '1234', '°ü¸®ÀÚ', '010-1234-5678', 'admin@iei.or.kr', '¼­¿ï½Ã °­³²±¸', SYSDATE, SYSDATE, DEFAULT, 'ROLE_ADMIN', DEFAULT
+    SEQ_UNO.NEXTVAL,'admin', '1234', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '010-1234-5678', 'admin@iei.or.kr', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', SYSDATE, SYSDATE, DEFAULT, 'ROLE_ADMIN', DEFAULT
 );
 
 INSERT INTO MEMBER VALUES(
-    SEQ_UNO.NEXTVAL, 'ismoon', '1234', 'ÀÏ¹ÝÈ¸¿ø', '010-1111-2222', 'ismoon@iei.or.kr', '¼­¿ï½Ã µ¿ÀÛ±¸', SYSDATE, SYSDATE, DEFAULT, DEFAULT, 100000
+    SEQ_UNO.NEXTVAL, 'ismoon', '1234', 'ï¿½Ï¹ï¿½È¸ï¿½ï¿½', '010-1111-2222', 'ismoon@iei.or.kr', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û±ï¿½', SYSDATE, SYSDATE, DEFAULT, DEFAULT, 100000
 );
 
 INSERT INTO MEMBER VALUES(
-    SEQ_UNO.NEXTVAL, 'creator', '1234', 'Ã¢ÀÛÀÚ', '010-3333-5555', 'creator@iei.or.kr', '¼­¿ï½Ã ¼ÛÆÄ±¸', SYSDATE, SYSDATE, DEFAULT, 'ROLE_CREATOR', DEFAULT
+    SEQ_UNO.NEXTVAL, 'creator', '1234', 'Ã¢ï¿½ï¿½ï¿½ï¿½', '010-3333-5555', 'creator@iei.or.kr', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ä±ï¿½', SYSDATE, SYSDATE, DEFAULT, 'ROLE_CREATOR', DEFAULT
 );
 
 COMMIT;
 
--- ¸â¹ö Á¶È¸
+-- ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 -- SELECT * FROM MEMBER WHERE USER_ID=? AND USER_PWD=? AND USER_STATUS='Y'
 
--- ¸â¹ö Ãß°¡
+-- ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 -- INSERT INTO MEMBER VALUES(SEQ_UNO.NEXTVAL,?,?,?,?,?,?,SYSDATE,SYSDATE,DEFAULT,DEFAULT,DEFAULT)
 
--- ¸â¹ö Ã£±â
+-- ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
 -- SELECT * FROM MEMBER WHERE USER_ID=?
 
--- ¸â¹ö ÆÐ½º¿öµå º¯°æ
+-- ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 -- UPDATE MEMBER SET PASSWORD=? WHERE USER_ID=?
 
--- ¸â¹ö ¼öÁ¤
+-- ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 -- UPDATE MEMBER SET USER_NAME=?,PHONE=?,EMAIL=?,ADDRESS=?,MODIFY_DATE=SYSDATE WHERE USER_ID=?
 
--- ¸â¹ö »èÁ¦
+-- ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 -- UPDATE MEMBER SET STATUS=? WHERE USER_ID=?
 
--- ¸â¹ö Ã¢ÀÛÀÚ·Î º¯°æ?
--- ¸â¹ö Ä³¸®¸Ó´Ï °ª º¯°æ?
+-- ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½?
+-- ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Ó´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½?
 
 
 --------------------------------------------------------------------
----------------------- project test °ü·Ã Å×ÀÌºí ----------------------
+---------------------- project test ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ----------------------
 --------------------------------------------------------------------
 
--- Å×½ºÆ®¿ë
+-- ï¿½×½ï¿½Æ®ï¿½ï¿½
 CREATE TABLE CARRYFUNDING_PROJECT(
     PROJECT_NO NUMBER PRIMARY KEY,
     PROJECT_TITLE VARCHAR2(200) NOT NULL,
@@ -102,36 +102,36 @@ CREATE TABLE CARRYFUNDING_PROJECT(
 
 CREATE SEQUENCE SEQ_PROJECT_NO;
 
-COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_NO" IS 'ÇÁ·ÎÁ§Æ®¹øÈ£';
-COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_TITLE" IS 'ÇÁ·ÎÁ§Æ®Á¦¸ñ';
-COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_COMPANY" IS '¾÷Ã¼¸í';
-COMMENT ON COLUMN CARRYFUNDING_PROJECT."TARGET_AMOUNT" IS '¸ñÇ¥±Ý¾×';
-COMMENT ON COLUMN CARRYFUNDING_PROJECT."REACH_AMOUNT" IS 'ÇöÀçµµ´Þ±Ý¾×';
-COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_ENROLL_DATE" IS 'ÇÁ·ÎÁ§Æ®½ÃÀÛ³¯Â¥';
-COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_MODIFY_DATE" IS 'ÇÁ·ÎÁ§Æ®Á¤º¸¼öÁ¤³¯Â¥';
-COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_END_DATE" IS 'ÇÁ·ÎÁ§Æ®Á¾·á³¯Â¥';
-COMMENT ON COLUMN CARRYFUNDING_PROJECT."IMG_NAME" IS 'ÀÌ¹ÌÁöµî·ÏÀÌ¸§';
-COMMENT ON COLUMN CARRYFUNDING_PROJECT."VIDEO_NAME" IS 'µ¿¿µ»óµî·ÏÀÌ¸§';
-COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_CONTENT" IS 'ÇÁ·ÎÁ§Æ®³»¿ë';
-COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_CHECK" IS 'ÇÁ·ÎÁ§Æ®½É»ç»óÅÂ';
-COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_COUNT" IS 'ÇÁ·ÎÁ§Æ®Á¶È¸¼ö';
-COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_LIKE" IS 'ÁÁ¾Æ¿äµî·Ï¼ö';
-COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_STATUS" IS 'ÇÁ·ÎÁ§Æ®»óÅÂ';
-COMMENT ON COLUMN CARRYFUNDING_PROJECT."CREATOR_NO" IS 'Ã¢ÀÛÀÚ¹øÈ£';
+COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_NO" IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½È£';
+COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_TITLE" IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½';
+COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_COMPANY" IS 'ï¿½ï¿½Ã¼ï¿½ï¿½';
+COMMENT ON COLUMN CARRYFUNDING_PROJECT."TARGET_AMOUNT" IS 'ï¿½ï¿½Ç¥ï¿½Ý¾ï¿½';
+COMMENT ON COLUMN CARRYFUNDING_PROJECT."REACH_AMOUNT" IS 'ï¿½ï¿½ï¿½çµµï¿½Þ±Ý¾ï¿½';
+COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_ENROLL_DATE" IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½Û³ï¿½Â¥';
+COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_MODIFY_DATE" IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¥';
+COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_END_DATE" IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½á³¯Â¥';
+COMMENT ON COLUMN CARRYFUNDING_PROJECT."IMG_NAME" IS 'ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½';
+COMMENT ON COLUMN CARRYFUNDING_PROJECT."VIDEO_NAME" IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½';
+COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_CONTENT" IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½';
+COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_CHECK" IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½É»ï¿½ï¿½ï¿½ï¿½';
+COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_COUNT" IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½È¸ï¿½ï¿½';
+COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_LIKE" IS 'ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½Ï¼ï¿½';
+COMMENT ON COLUMN CARRYFUNDING_PROJECT."PROJECT_STATUS" IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½';
+COMMENT ON COLUMN CARRYFUNDING_PROJECT."CREATOR_NO" IS 'Ã¢ï¿½ï¿½ï¿½Ú¹ï¿½È£';
 
 INSERT INTO CARRYFUNDING_PROJECT VALUES(
     SEQ_PROJECT_NO.NEXTVAL,
-    'ÇÁ·ÎÁ§Æ®TEST',
+    'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®TEST',
     'CARRY',
     1000000,
     0,
     DEFAULT,
     DEFAULT,
     '21/01/25',
-    'ÀÌ¹ÌÁö.JPG',
-    'ºñµð¿À.AVI',
-    'ÇÁ·ÎÁ§Æ® TEST ÀÔ´Ï´Ù. ¹«½¼ ³»¿ëÀ» ³Ö¾î¾ß ÇÒ±î¿ä? °ú¿¬ ¿£ÅÍµµ ¸ÔÀ»±î¿ä?
-    ÁÙ¹Ù²Þ °°Àº°Íµµ Á÷Á¢ÇØ¾ßÇÒ±î? °í¹ÎÀÌ³×¿ä¤»¤»¤»',
+    'ï¿½Ì¹ï¿½ï¿½ï¿½.JPG',
+    'ï¿½ï¿½ï¿½ï¿½.AVI',
+    'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® TEST ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ ï¿½Ò±ï¿½ï¿½? ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
+    ï¿½Ù¹Ù²ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½Ò±ï¿½? ï¿½ï¿½ï¿½ï¿½Ì³×¿ä¤»ï¿½ï¿½ï¿½ï¿½',
     'Y',
     DEFAULT,
     DEFAULT,
@@ -148,10 +148,10 @@ INSERT INTO CARRYFUNDING_PROJECT VALUES(
     DEFAULT,
     DEFAULT,
     '21/01/30',
-    'ÀÌ¹ÌÁö1.JPG',
-    'ºñµð¿À1.AVI',
-    'ÇÁ·ÎÁ§Æ® TEST222 ÀÔ´Ï´Ù. ¹«½¼ ³»¿ëÀ» ³Ö¾î¾ß ÇÒ±î¿ä? °ú¿¬ ¿£ÅÍµµ ¸ÔÀ»±î¿ä?
-    ÁÙ¹Ù²Þ °°Àº°Íµµ Á÷Á¢ÇØ¾ßÇÒ±î? °í¹ÎÀÌ³×¿ä¤»¤»¤»',
+    'ï¿½Ì¹ï¿½ï¿½ï¿½1.JPG',
+    'ï¿½ï¿½ï¿½ï¿½1.AVI',
+    'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® TEST222 ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ ï¿½Ò±ï¿½ï¿½? ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
+    ï¿½Ù¹Ù²ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½Ò±ï¿½? ï¿½ï¿½ï¿½ï¿½Ì³×¿ä¤»ï¿½ï¿½ï¿½ï¿½',
     'Y',
     DEFAULT,
     DEFAULT,
@@ -159,7 +159,7 @@ INSERT INTO CARRYFUNDING_PROJECT VALUES(
     2
 );
 
--- ÇÁ·ÎÁ§Æ® ±Û Á¶È¸ÇÏ±â
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Ï±ï¿½
 --SELECT P.PROJECT_NO, P.PROJECT_TITLE, M.USER_ID, P.PROJECT_COMPANY, P.TARGET_AMOUNT, P.REACH_AMOUNT, P.PROJECT_ENROLL_DATE, P.PROJECT_MODIFY_DATE, P.PROJECT_END_DATE, P.IMG_NAME, P.VIDEO_NAME, P.PROJECT_CONTENT, P.PROJECT_COUNT, P.PROJECT_LIKE
 --FROM CARRYFUNDING_PROJECT P
 --JOIN MEMBER M ON(P.CREATOR_NO = M.USER_NO)
@@ -167,7 +167,7 @@ INSERT INTO CARRYFUNDING_PROJECT VALUES(
 
 
 --------------------------------------------------------------------
-------------------------- Board °ü·Ã Å×ÀÌºí --------------------------
+------------------------- Board ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ --------------------------
 --------------------------------------------------------------------
 
 
@@ -176,8 +176,8 @@ INSERT INTO CARRYFUNDING_PROJECT VALUES(
 
 
 --------------------------------------------------------------------
-------------------------- point °ü·Ã Å×ÀÌºí --------------------------
-------------- 2021/ 01/ 20 ÀÌ½½ POINT °ü·Ã Å×ÀÌºí Ãß°¡(INSERTPOINTINFO)----------------
+------------------------- point ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ --------------------------
+------------- 2021/ 01/ 20 ï¿½Ì½ï¿½ POINT ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ß°ï¿½(INSERTPOINTINFO)----------------
 
 CREATE TABLE POINT_CHARGING (
     PAYMENT_NO NUMBER PRIMARY KEY,
@@ -191,19 +191,23 @@ CREATE TABLE POINT_CHARGING (
     CONSTRAINT FK_POINT_PAYER FOREIGN KEY(PAYER_NO) REFERENCES MEMBER(USER_NO) ON DELETE SET NULL
 );
 
-COMMENT ON COLUMN POINT_CHARGING.PAYMENT_NO IS '°áÁ¦¹øÈ£';
-COMMENT ON COLUMN POINT_CHARGING.PAYMENT_AMOUNT IS '°áÁ¦±Ý¾×';
-COMMENT ON COLUMN POINT_CHARGING.PAYMENT_BANK_NAME IS '°áÁ¦ÀºÇà¸í';
-COMMENT ON COLUMN POINT_CHARGING.BANK_ACCOUNT_NUMBER IS '°èÁÂ¹øÈ£';
-COMMENT ON COLUMN POINT_CHARGING.PAYMENT_DATE IS '°áÁ¦³¯Â¥';
-COMMENT ON COLUMN POINT_CHARGING.CANCLE_PAYMENT_DATE IS '°áÁ¦Ãë¼Ò³¯Â¥';
-COMMENT ON COLUMN POINT_CHARGING.PAYMENT_PROGRESS IS '°áÁ¦ÁøÇà»óÅÂ';
-COMMENT ON COLUMN POINT_CHARGING.PAYER_NO IS '°áÁ¦ÀÚ¹øÈ£';
+COMMENT ON COLUMN POINT_CHARGING.PAYMENT_NO IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£';
+COMMENT ON COLUMN POINT_CHARGING.PAYMENT_AMOUNT IS 'ï¿½ï¿½ï¿½ï¿½ï¿½Ý¾ï¿½';
+COMMENT ON COLUMN POINT_CHARGING.PAYMENT_BANK_NAME IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
+COMMENT ON COLUMN POINT_CHARGING.BANK_ACCOUNT_NUMBER IS 'ï¿½ï¿½ï¿½Â¹ï¿½È£';
+COMMENT ON COLUMN POINT_CHARGING.PAYMENT_DATE IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¥';
+COMMENT ON COLUMN POINT_CHARGING.CANCLE_PAYMENT_DATE IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½Â¥';
+COMMENT ON COLUMN POINT_CHARGING.PAYMENT_PROGRESS IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
+COMMENT ON COLUMN POINT_CHARGING.PAYER_NO IS 'ï¿½ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£';
 
 --DROP TABLE POINT_CHARGING;
 
 CREATE SEQUENCE SEQ_PAYMENT_NO;
 
 COMMIT;
--- POINT INSERT¹®
---INSERT INTO POINT_CHARGING VALUES(SEQ_PAYMENT_NO.NEXTVAL, 10000, '±¹¹Î', 1100000000, SYSDATE, NULL, 'Y', 1);
+-- POINT INSERTï¿½ï¿½
+--INSERT INTO POINT_CHARGING VALUES(SEQ_PAYMENT_NO.NEXTVAL, 10000, 'ï¿½ï¿½ï¿½ï¿½', 1100000000, SYSDATE, NULL, 'Y', 1);
+
+INSERT INTO POINT_CHARGING VALUES(SEQ_PAYMENT_NO.NEXTVAL, 10000, 'êµ­ë¯¼', 1111111111, SYSDATE, NULL, 'Y', 2);
+
+

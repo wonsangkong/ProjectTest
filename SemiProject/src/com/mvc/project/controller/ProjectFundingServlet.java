@@ -31,10 +31,6 @@ public class ProjectFundingServlet extends HttpServlet {
 		int projectNo = Integer.parseInt(request.getParameter("projectNo"));
 		int fundingPrice = Integer.parseInt(request.getParameter("fundingPrice"));
 		
-		// 1.23 승현 복잡하게 구성된 서블릿 기능 제거 이 때문에 list랑 db가 꼬이는것 같아서 일단 주석처리
-//		Member member = new MemberService().findMemberForfunding(userNo);
-//		CarryProject project = new ProjectService().getProject(projectNo);
-		
 		funding.setFundingPrice(fundingPrice);
 		funding.setFundingUser(userNo);
 		funding.setFundingProject(projectNo);

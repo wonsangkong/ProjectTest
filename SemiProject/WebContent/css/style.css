@@ -200,6 +200,25 @@
             float: left;
             margin-left: 45px;
         }
+        
+        /* 2021/01/23 이슬 section에 성공임박 눌렀을 때 페이징 css */
+        #content_2 {
+            height: 850px;
+        }
+        
+		 #pageBar1 {
+            margin: auto;
+            padding-left: 360px;
+        }
+
+        #pageBar1 button {
+            font-size: 15px;
+            height: 30px;
+            width: 45px;
+            background-color: white;
+            border-style: solid;
+            border-radius: 20px;
+        }
 		
         #footer {
             position:absolute;
@@ -288,5 +307,54 @@
             padding: 70px;
             margin: auto;
             font-size: 17px;
+        }
+        
+        /* 2021/01/21 이슬 포인트 충전하기 부분 누락된 css 추가 및 pointUpdate css추가  */
+        
+        #pointInfo label {
+            text-align: center;
+            font-size: 20px;
+            line-height: 80px;
+            margin: 10px;
+            padding-left: 50px;
+        }
+
+        #paymentInfo {
+            padding: 50px;
+            font-size: 15px;
+        }
+
+        #chargingOrResetB {
+            text-align: center;
+        }
+
+        #chargingOrResetB>input {
+            width: 100px;
+            background-color: white;
+            border-radius: 10px;
+        }
+        
+         #pointCheck {
+            width: 40%;
+            height: 150px;
+            text-align: center;
+            margin: auto;
+            font-size: 15px;
+        }
+		
+        #pointCheck td {
+            padding-top: 40px;
+        }
+
+        #pointCheck input {
+            height: 20px;
+        }
+
+        #pointUpdateButton {
+            width: 20%;
+            margin-left: 400px;
+            margin-top: 100px;
+            border-style: solid;
+            background-color: white;
         }
         

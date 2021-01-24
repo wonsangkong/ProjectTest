@@ -12,13 +12,14 @@
 %>    
 
          <section>
-
-            <div id="content_2">
+            <!-- 2021/01/23 이슬 content_2 안에있던 protitle1 밖으로 뺌 -->
                 <div id="protitle1">
                     <hr id="hr1">
                         <h3>성공 임박 프로젝트</h3>
                     <hr id="hr2">
                 </div>
+                
+            <div id="content_2">
                 <% if(list.isEmpty()) { %>
                 <form class="prodform">
                     <div class="prod" id="prod1"><img src="../resources/logo.PNG" alt=""></div>
@@ -34,21 +35,20 @@
 						<%= project.getProjectTitle() %>
 					</a></p>
                     <p>달성률(<%= project.getAttainmentPercent()%> %)</p>
-                    <p>리워드확인</p>
                 </form>
                 <%	}
                 } %>
             </div>
         
         <!-- 1.19 페이지 처리하는 html 추가 -->    
-		<div id="pageBar">
+		<div id="pageBar1">
 			<!-- 맨 처음으로 -->
 			<button onclick="location.href='<%= request.getContextPath() %>/project/list?page=1'">&lt;&lt;</button>
 			
 			<!-- 이전 페이지로 -->
 			<button onclick="location.href='<%= request.getContextPath() %>/project/list?page=<%= pageInfo.getPrvePage() %>'">&lt;</button>
 			
-			<!--  10개 페이지 목록 -->
+			<!-- 페이지 목록 -->
 			<% for(int p = pageInfo.getStartPage(); p <= pageInfo.getEndPage(); p++){ %>
 				<% if(p == pageInfo.getCurrentPage()){ %>
 					<button disabled><%= p %></button>

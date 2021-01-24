@@ -37,7 +37,7 @@ public class ProjectListServlet extends HttpServlet {
 		
 		// jsp 파라미터에 &size=? 이런식으로 숫자를 부여하고, select 박스 생성해서 5개, 10개, 15개 이런식으로 조회가 될 수 있도록 구현해보기
 		listCount = new ProjectService().getProjectCount();
-		info = new PageInfo(page, 10, listCount, 4);		
+		info = new PageInfo(page, 10, listCount, 8);		
 		list = new ProjectService().getProjectList(info);
 		
 //		System.out.println(list);

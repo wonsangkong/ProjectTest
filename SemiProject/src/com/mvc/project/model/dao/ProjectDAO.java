@@ -58,7 +58,6 @@ public class ProjectDAO {
 				project.setProjectCount(rs.getInt("PROJECT_COUNT"));
 				project.setProjectLike(rs.getInt("PROJECT_LIKE"));
 				project.setAttainmentPercent(rs.getInt("TRIM((REACH_AMOUNT/TARGET_AMOUNT)*100)"));
-//				project.setCreateNo(rs.getInt("CREATOR_NO"));
 				
 			}
 			
@@ -124,7 +123,6 @@ public class ProjectDAO {
 				project.setProjectContent(rs.getString("PROJECT_CONTENT"));
 				project.setProjectCount(rs.getInt("PROJECT_COUNT"));
 				project.setProjectLike(rs.getInt("PROJECT_LIKE"));
-//				project.setCreateNo(rs.getInt("CREATOR_NO"));
 				
 				list.add(project);
 			}

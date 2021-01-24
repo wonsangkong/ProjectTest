@@ -93,7 +93,7 @@
                     <li><a href="">펀딩하기</a>
                         <ul>
                             <li><a href="">모든프로젝트</a></li>
-                            <li><a href="">카테고리</a></li>
+                            <li><a href="<%=request.getContextPath()%>/project/listform">카테고리</a></li>
                             <li><a href="">오픈예정</a></li>
                         </ul>
                     </li>
