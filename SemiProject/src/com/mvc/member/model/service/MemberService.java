@@ -183,7 +183,11 @@ public class MemberService {
 	// 1/23일 id값 불러오기 완료!
 	public Member idfind(String name, String email) {
 		Connection conn = getConnection();
-		return dao.idfind(conn, name , email);
+		
+		Member member = dao.idfind(conn, name , email);
+		
+		close(conn);
+		return member;
 	}
 
 }

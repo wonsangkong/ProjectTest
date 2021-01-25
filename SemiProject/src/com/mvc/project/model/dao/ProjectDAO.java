@@ -131,7 +131,7 @@ public class ProjectDAO {
 			e.printStackTrace();
 		} finally {
 			close(rs);
-			close(conn);
+			close(pstmt);
 		}
 		
 		System.out.println("list : " + list);
@@ -417,7 +417,7 @@ public List<CarryProject> adminFindAll(Connection conn, PageInfo info) {
 			e.printStackTrace();
 		} finally {
 			close(rs);
-			close(conn);
+			close(pstmt);
 		}
 		
 		System.out.println("list : " + list);
